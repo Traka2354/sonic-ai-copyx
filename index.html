@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Sonic AI CopyX — Copy gold trades automatically through Tag Markets using AI-powered copy trading. Register free and start earning today." />
-  <title>Sonic AI CopyX | Gold Copy Trading via Tag Markets</title>
+  <meta name="description" content="Sonic AI CopyX — AI-powered gold copy trading via Tag Markets. Two account types: 12X and 24X. Automated, transparent, and 100% regulated. Join free today." />
+  <title>Sonic AI CopyX | AI-Powered Gold Copy Trading</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet" />
@@ -12,22 +12,29 @@
 </head>
 <body>
 
+  <!-- ─── RISK BANNER ─── -->
+  <div class="risk-banner">
+    ⚠️ <strong>Risk Warning:</strong> Trading financial instruments involves significant risk. Capital is at risk. Past performance is not a guarantee of future results. Only invest what you can afford to lose.
+    <button class="risk-banner__close" id="closeBanner" aria-label="Close">✕</button>
+  </div>
+
   <!-- ─── NAV ─── -->
   <nav class="nav" id="nav">
     <div class="nav__inner container">
       <a href="#hero" class="nav__logo">
+        <img src="assets/logo.svg" alt="Sonic AI CopyX Logo" class="site-logo-img" />
         <span class="logo-sonic">SONIC AI</span><span class="logo-ai">&nbsp;CopyX</span>
       </a>
-      <button class="nav__burger" id="burger" aria-label="Menu">
+      <button class="nav__burger" id="burger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav__links" id="navLinks">
         <li><a href="#how-it-works">How It Works</a></li>
-        <li><a href="#why-gold">Why Gold</a></li>
-        <li><a href="#features">Features</a></li>
+        <li><a href="#accounts">Accounts</a></li>
+        <li><a href="#performance">Performance</a></li>
         <li><a href="#platform">Platform</a></li>
-        <li><a href="#get-started">Get Started</a></li>
-        <li><a href="#get-started" class="btn btn--gold btn--sm js-register-link">Join Now</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#get-started" class="btn btn--gold btn--sm js-register-link">Join Free</a></li>
       </ul>
     </div>
   </nav>
@@ -39,27 +46,47 @@
     <div class="container hero__inner">
       <div class="hero__badge">
         <span class="pulse-dot"></span>
-        Live AI Copy Trading — Now Open
+        AI Powered · Data Driven · Results Proven
       </div>
       <h1 class="hero__title">
-        Let <span class="gold-text">AI</span> Copy<br />
-        Gold Trades For You
+        Copy <span class="gold-text">Gold Trades</span><br />Automatically with AI
       </h1>
       <p class="hero__subtitle">
-        <strong>Sonic AI CopyX</strong> automatically mirrors elite gold traders on <strong>Tag Markets</strong> —
-        so you earn while the algorithm works around the clock.
+        <strong>Sonic AI CopyX</strong> mirrors expert gold traders on <strong>Tag Markets</strong> in real time.
+        Choose your account type, set your risk level, and let the AI do the work — 24/7.
       </p>
       <div class="hero__cta">
         <a href="#" class="btn btn--gold btn--lg js-register-link">
-          Start Copy Trading
+          Start for Free
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="#how-it-works" class="btn btn--ghost btn--lg">See How It Works</a>
+        <a href="#accounts" class="btn btn--ghost btn--lg">See Account Types</a>
       </div>
+
+      <!-- Live week example -->
+      <div class="hero__live-results">
+        <div class="live-label">
+          <span class="pulse-dot"></span> Recent Weekly Example Results
+        </div>
+        <div class="live-cards">
+          <div class="live-card">
+            <span class="live-card__badge">12X</span>
+            <span class="live-card__value">+3.29%</span>
+            <span class="live-card__label">Weekly</span>
+          </div>
+          <div class="live-card live-card--accent">
+            <span class="live-card__badge">24X</span>
+            <span class="live-card__value">+6.58%</span>
+            <span class="live-card__label">Weekly</span>
+          </div>
+        </div>
+        <p class="live-disclaimer">*Example results from a recent week. Past performance does not guarantee future returns. Capital at risk.</p>
+      </div>
+
       <div class="hero__stats">
         <div class="stat">
-          <span class="stat__value gold-text">AI</span>
-          <span class="stat__label">Powered</span>
+          <span class="stat__value gold-text">2</span>
+          <span class="stat__label">Account Types</span>
         </div>
         <div class="stat__divider"></div>
         <div class="stat">
@@ -84,12 +111,12 @@
   </section>
 
   <!-- ─── HOW IT WORKS ─── -->
-  <section class="section" id="how-it-works">
+  <section class="section section--dark" id="how-it-works">
     <div class="container">
       <div class="section__header">
         <span class="section__tag">Simple &amp; Transparent</span>
         <h2>How It Works</h2>
-        <p>Three steps and you're live — no trading experience needed.</p>
+        <p>Three steps and you're live — no trading experience or technical knowledge needed.</p>
       </div>
       <div class="steps">
         <div class="step reveal">
@@ -97,144 +124,288 @@
           <div class="step__icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
           </div>
-          <h3>Register on Tag Markets</h3>
-          <p>Open a free account using our partner link. Verification takes just minutes. Regulated and secure.</p>
+          <h3>Register Free</h3>
+          <p>Open your account on Tag Markets through the partner link. Identity verification takes just a few minutes. Fully regulated and secure.</p>
         </div>
         <div class="step__arrow">→</div>
         <div class="step reveal">
           <div class="step__number">02</div>
           <div class="step__icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
           </div>
-          <h3>Activate Sonic AI CopyX</h3>
-          <p>Connect the Sonic AI CopyX system via the AITECH portal. One click and AI starts mirroring expert gold trades.</p>
+          <h3>Choose Your Account</h3>
+          <p>Select the <strong>12X</strong> account for balanced exposure or the <strong>24X</strong> account for higher leverage. Deposit your chosen amount and activate copy trading.</p>
         </div>
         <div class="step__arrow">→</div>
         <div class="step reveal">
           <div class="step__number">03</div>
           <div class="step__icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
           </div>
-          <h3>Earn Automatically</h3>
-          <p>The AI copies positions in real time. Monitor your balance growing — no manual trading needed.</p>
+          <h3>AI Copies &amp; Earns</h3>
+          <p>Sonic AI CopyX mirrors expert gold trades to your account in real time. Monitor your performance live — withdraw profits whenever you choose.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ─── ACCOUNT TYPES ─── -->
+  <section class="section" id="accounts">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__tag">Choose Your Path</span>
+        <h2>Two Account <span class="gold-text">Types</span></h2>
+        <p>Pick the account that matches your risk appetite. Both are fully automated — the AI does the trading.</p>
+      </div>
+      <div class="accounts-grid">
+
+        <div class="account-card reveal">
+          <div class="account-card__badge">12X</div>
+          <h3>12X Account</h3>
+          <p class="account-card__tagline">Balanced · Steady Growth</p>
+          <div class="account-card__stat">
+            <span class="account-card__stat-value">+2.57% – +3.29%</span>
+            <span class="account-card__stat-label">Example weekly range*</span>
+          </div>
+          <ul class="account-card__features">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              12x leverage multiplier on copy trades
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Lower risk exposure per trade
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Ideal for conservative investors
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Full AI management, no manual input
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Weekly profit distribution
+            </li>
+          </ul>
+          <a href="#" class="btn btn--outline btn--full js-register-link">Open 12X Account</a>
+        </div>
+
+        <div class="account-card account-card--featured reveal">
+          <div class="account-card__popular">Most Popular</div>
+          <div class="account-card__badge account-card__badge--accent">24X</div>
+          <h3>24X Account</h3>
+          <p class="account-card__tagline">Aggressive · Maximum Growth</p>
+          <div class="account-card__stat">
+            <span class="account-card__stat-value">+5.14% – +6.58%</span>
+            <span class="account-card__stat-label">Example weekly range*</span>
+          </div>
+          <ul class="account-card__features">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              24x leverage multiplier on copy trades
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Higher growth potential per trade
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Suited for experienced investors
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Full AI management, no manual input
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Weekly profit distribution
+            </li>
+          </ul>
+          <a href="#" class="btn btn--gold btn--full js-register-link">Open 24X Account</a>
+        </div>
+
+      </div>
+      <p class="accounts-disclaimer">*Example results from recent weeks. Past performance is not indicative of future results. Higher leverage means higher risk. Capital is at risk. Please read the full risk disclosure before investing.</p>
+    </div>
+  </section>
+
+  <!-- ─── PERFORMANCE ─── -->
+  <section class="section section--dark" id="performance">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__tag">Verified Results</span>
+        <h2>Recent <span class="gold-text">Performance</span></h2>
+        <p>Example results from Sonic AI CopyX community reports. All trades executed via Tag Markets.</p>
+      </div>
+      <div class="perf-grid">
+
+        <div class="perf-card reveal">
+          <div class="perf-card__week">Week 1 — Example</div>
+          <div class="perf-card__results">
+            <div class="perf-result">
+              <span class="perf-result__badge">12X</span>
+              <span class="perf-result__value">+2.57%</span>
+            </div>
+            <div class="perf-result perf-result--accent">
+              <span class="perf-result__badge perf-result__badge--accent">24X</span>
+              <span class="perf-result__value">+5.14%</span>
+            </div>
+          </div>
+          <div class="perf-card__note">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            First trade of the week — WIN
+          </div>
+        </div>
+
+        <div class="perf-card reveal">
+          <div class="perf-card__week">Week 2 — Example</div>
+          <div class="perf-card__results">
+            <div class="perf-result">
+              <span class="perf-result__badge">12X</span>
+              <span class="perf-result__value">+3.29%</span>
+            </div>
+            <div class="perf-result perf-result--accent">
+              <span class="perf-result__badge perf-result__badge--accent">24X</span>
+              <span class="perf-result__value">+6.58%</span>
+            </div>
+          </div>
+          <div class="perf-card__note">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            "Another absolutely amazing week!"
+          </div>
+        </div>
+
+        <div class="perf-card perf-card--highlight reveal">
+          <div class="perf-card__week">What Our Clients Say</div>
+          <blockquote class="perf-quote">
+            "We currently think it's going to be the best month since existence. Thank you and enjoy your profit share today."
+          </blockquote>
+          <p class="perf-quote__attr">— Sonic AI CopyX Team, community update</p>
+        </div>
+
+      </div>
+      <div class="perf-disclaimer reveal">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p><strong>Important:</strong> The figures above are illustrative examples from community reports and are not guaranteed. Trading involves significant risk. Results vary between accounts and market conditions. Past performance does not predict future results.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- ─── WHY GOLD ─── -->
-  <section class="section section--dark" id="why-gold">
+  <section class="section" id="why-gold">
     <div class="container">
       <div class="section__header">
         <span class="section__tag">Safe-Haven Asset</span>
         <h2>Why Trade <span class="gold-text">Gold</span>?</h2>
-        <p>Gold (XAU/USD) is the world's most trusted store of value — and one of the most actively traded instruments.</p>
+        <p>Gold (XAU/USD) is the world's most trusted store of value and one of the most actively traded instruments daily.</p>
       </div>
       <div class="gold-grid">
         <div class="gold-card reveal">
           <div class="gold-card__icon">🏦</div>
           <h3>Global Store of Value</h3>
-          <p>Gold has preserved wealth for thousands of years. Central banks hold it. Investors trust it. AI can trade it.</p>
+          <p>Gold has preserved wealth for millennia. Central banks, governments, and investors worldwide hold it as a core asset.</p>
         </div>
         <div class="gold-card reveal">
           <div class="gold-card__icon">📈</div>
-          <h3>High Liquidity</h3>
-          <p>Over $100 billion traded daily. Tight spreads, fast execution, and plenty of opportunity for copy traders.</p>
+          <h3>High Daily Liquidity</h3>
+          <p>Over $100 billion in gold is traded every day — tight spreads, fast execution, and plenty of opportunity.</p>
         </div>
         <div class="gold-card reveal">
           <div class="gold-card__icon">🛡️</div>
           <h3>Inflation Hedge</h3>
-          <p>When currencies weaken, gold strengthens. It's the natural hedge that smart investors always keep.</p>
+          <p>When currencies weaken and inflation rises, gold has historically strengthened — it's the classic safe-haven trade.</p>
         </div>
         <div class="gold-card reveal">
           <div class="gold-card__icon">🤖</div>
-          <h3>AI-Friendly Volatility</h3>
-          <p>Gold's predictable patterns and macro sensitivity make it ideal for AI-driven copy trading strategies.</p>
+          <h3>AI-Optimised Patterns</h3>
+          <p>Gold's macro-driven patterns and technical clarity make it perfectly suited for AI-powered copy trading strategies.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ─── FEATURES ─── -->
-  <section class="section" id="features">
+  <section class="section section--dark" id="features">
     <div class="container">
       <div class="section__header">
-        <span class="section__tag">Sonic AI CopyX Advantage</span>
-        <h2>Why <span class="gold-text">Sonic AI CopyX</span> Stands Out</h2>
-        <p>Built for performance, transparency, and ease of use.</p>
+        <span class="section__tag">Platform Advantages</span>
+        <h2>Everything You <span class="gold-text">Need</span></h2>
+        <p>Sonic AI CopyX is built for transparency, ease of use, and consistent performance.</p>
       </div>
       <div class="features-grid">
         <div class="feature-card reveal">
           <div class="feature-card__line"></div>
           <div class="feature-card__icon">⚡</div>
-          <h3>Instant Copy Execution</h3>
-          <p>Trades are copied in milliseconds. No delay, no slippage in timing — your account mirrors the master trader in real time.</p>
+          <h3>Real-Time Copy Execution</h3>
+          <p>Trades are mirrored to your account in milliseconds — the same entry and exit as the master trader, no delay.</p>
         </div>
         <div class="feature-card reveal">
           <div class="feature-card__line"></div>
           <div class="feature-card__icon">🧠</div>
-          <h3>AI-Driven Strategy</h3>
-          <p>Sonic AI CopyX analyses market data, sentiment, and price action to select the best-performing traders to copy.</p>
+          <h3>AI-Powered Precision</h3>
+          <p>Sonic AI analyses market data, news sentiment, and price action continuously to identify high-probability gold setups.</p>
         </div>
         <div class="feature-card reveal">
           <div class="feature-card__line"></div>
           <div class="feature-card__icon">🔒</div>
-          <h3>Risk Management Built In</h3>
-          <p>Set your own stop-loss, maximum drawdown, and lot size. You stay in control of how much you risk.</p>
+          <h3>Built-in Risk Controls</h3>
+          <p>Set your own maximum drawdown limit, stop-loss level, and lot size. You always stay in control of your risk.</p>
         </div>
         <div class="feature-card reveal">
           <div class="feature-card__line"></div>
           <div class="feature-card__icon">📊</div>
-          <h3>Full Transparency</h3>
-          <p>Every copied trade is visible in your Tag Markets dashboard. Complete trade history, P&amp;L, and performance metrics.</p>
+          <h3>Full Trade Transparency</h3>
+          <p>Every trade is visible in your Tag Markets dashboard — full history, P&amp;L, and live open positions at all times.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-card__line"></div>
+          <div class="feature-card__icon">💰</div>
+          <h3>Weekly Profit Sharing</h3>
+          <p>Profits are distributed weekly. Withdraw to your bank or payment method whenever you choose — no lock-up periods.</p>
         </div>
         <div class="feature-card reveal">
           <div class="feature-card__line"></div>
           <div class="feature-card__icon">🌍</div>
           <h3>Trade From Anywhere</h3>
-          <p>Web, iOS, and Android. Monitor your copy trading portfolio on any device, in any timezone.</p>
-        </div>
-        <div class="feature-card reveal">
-          <div class="feature-card__line"></div>
-          <div class="feature-card__icon">💳</div>
-          <h3>Easy Deposits &amp; Withdrawals</h3>
-          <p>Tag Markets supports multiple payment methods. Deposit in minutes, withdraw profits whenever you want.</p>
+          <p>Full web platform plus iOS and Android apps. Monitor your copy trading account from any device, anywhere in the world.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ─── PLATFORM ─── -->
-  <section class="section section--dark" id="platform">
+  <section class="section" id="platform">
     <div class="container">
       <div class="platform-wrap">
         <div class="platform-text reveal">
-          <span class="section__tag">Trusted Broker</span>
+          <span class="section__tag">Regulated Broker</span>
           <h2>Powered by <span class="gold-text">Tag Markets</span></h2>
           <p class="platform-desc">
-            Tag Markets is a regulated online broker offering forex, commodities, and indices trading.
-            With a strong focus on technology and transparency, it's the ideal platform for AI-powered copy trading.
+            Tag Markets is a regulated online broker offering forex, gold, commodities, and indices.
+            It provides the infrastructure that makes Sonic AI CopyX safe, transparent, and legally compliant.
           </p>
           <ul class="platform-list">
             <li>
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              Regulated broker — client funds protected
+              Regulated broker — client funds protected in segregated accounts
             </li>
             <li>
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              Social &amp; Copy Trading platform built in
+              Social &amp; Copy Trading built directly into the platform
             </li>
             <li>
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              Demo accounts — practice risk-free first
+              Free Demo account — practice with virtual funds first
             </li>
             <li>
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              Real-time balance &amp; trade monitoring
+              Real-time balance, equity, and trade history dashboard
             </li>
             <li>
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              Managed via AITECH IB Portal
+              Onboarding support via AITECH IB Portal
             </li>
           </ul>
         </div>
@@ -249,6 +420,10 @@
               <span class="platform-stat__value gold-text">✓ Licensed</span>
             </div>
             <div class="platform-stat">
+              <span class="platform-stat__label">Client Funds</span>
+              <span class="platform-stat__value gold-text">✓ Segregated</span>
+            </div>
+            <div class="platform-stat">
               <span class="platform-stat__label">Copy Trading</span>
               <span class="platform-stat__value gold-text">✓ Built-in</span>
             </div>
@@ -256,24 +431,20 @@
               <span class="platform-stat__label">Demo Account</span>
               <span class="platform-stat__value gold-text">✓ Free</span>
             </div>
-            <div class="platform-stat">
-              <span class="platform-stat__label">AI Portal</span>
-              <span class="platform-stat__value gold-text">✓ AITECH</span>
-            </div>
           </div>
-          <a href="#" class="btn btn--gold btn--full js-register-link">Open Account</a>
+          <a href="#" class="btn btn--gold btn--full js-register-link">Open Account Free</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ─── GET STARTED / QR ─── -->
-  <section class="section" id="get-started">
+  <section class="section section--dark" id="get-started">
     <div class="container">
       <div class="section__header">
         <span class="section__tag">Ready to Start?</span>
         <h2>Scan &amp; Join <span class="gold-text">Sonic AI CopyX</span></h2>
-        <p>Scan the QR code with your phone or click the button below. Free registration, takes just minutes.</p>
+        <p>Scan the QR code with your phone camera or tap the button. Free registration — takes under 5 minutes.</p>
       </div>
 
       <div class="qr-center reveal">
@@ -282,6 +453,7 @@
           <div class="qr-wrap">
             <canvas id="qrCanvas1"></canvas>
           </div>
+          <p class="qr-card__sub">Scan with your phone camera to register</p>
           <a href="#" class="btn btn--gold btn--full js-register-link">
             Register Now
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -306,36 +478,44 @@
   </section>
 
   <!-- ─── FAQ ─── -->
-  <section class="section section--dark" id="faq">
+  <section class="section" id="faq">
     <div class="container">
       <div class="section__header">
-        <span class="section__tag">Questions?</span>
-        <h2>Frequently Asked Questions</h2>
+        <span class="section__tag">Got Questions?</span>
+        <h2>Frequently Asked <span class="gold-text">Questions</span></h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal">
           <summary>Is copy trading legal?</summary>
-          <p>Yes. Copy trading is a fully legal and regulated financial service. Tag Markets operates under applicable financial regulations, and copy trading is an accepted form of social investing used by millions worldwide.</p>
+          <p>Yes. Copy trading is a fully legal, regulated financial service. Tag Markets is a licensed broker, and copy trading is an accepted form of social investing used by millions of retail investors worldwide. All trades are executed on a regulated platform and are fully transparent.</p>
         </details>
         <details class="faq-item reveal">
-          <summary>Do I need trading experience?</summary>
-          <p>No experience is required. Sonic AI CopyX and the copy trading system handle trade selection and execution automatically. You simply fund your account, activate copy trading, and monitor your results.</p>
+          <summary>What is the difference between the 12X and 24X accounts?</summary>
+          <p>Both accounts copy the same Sonic AI gold trading strategy. The difference is the leverage multiplier applied to each copied trade. The 12X account uses 12x leverage (lower risk, lower potential return), while the 24X account uses 24x leverage (higher potential return, but also higher risk). Always choose the account that matches your risk tolerance.</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>Do I need any trading experience?</summary>
+          <p>No experience is required. Sonic AI CopyX handles everything automatically — trade selection, entry, exit, and risk management. You simply choose your account type, deposit funds, activate copy trading, and monitor your results.</p>
         </details>
         <details class="faq-item reveal">
           <summary>What is the minimum deposit?</summary>
-          <p>Please check the current Tag Markets deposit requirements at registration. You can also start with a free Demo account to test the platform before committing real funds.</p>
+          <p>Please check the current Tag Markets deposit requirements during registration. You can also open a free Demo account first to explore the platform with virtual funds before committing any real money.</p>
         </details>
         <details class="faq-item reveal">
-          <summary>Can I stop copy trading at any time?</summary>
-          <p>Yes, absolutely. You remain in full control of your account. You can stop copying, adjust your settings, or withdraw your funds at any time.</p>
+          <summary>How and when are profits distributed?</summary>
+          <p>Profits are calculated and made available weekly. You can withdraw to your preferred payment method at any time — there are no lock-up periods. Withdrawal processing times depend on your chosen method and Tag Markets' standard procedures.</p>
         </details>
         <details class="faq-item reveal">
-          <summary>What is AITECH / the IB Portal?</summary>
-          <p>AITECH (aitech.ibportal.io) is the partner management portal used by the IB partner network. It helps manage client onboarding and copy trading setup on the Tag Markets platform.</p>
+          <summary>Can I stop or change my copy trading settings at any time?</summary>
+          <p>Yes, absolutely. You are always in full control of your account. You can stop copying, change your lot size, adjust your stop-loss, or withdraw your funds at any time through the Tag Markets platform. There are no penalties for stopping.</p>
         </details>
         <details class="faq-item reveal">
-          <summary>Are my funds safe?</summary>
-          <p>Tag Markets is a regulated broker with client fund protection policies. That said, all financial trading carries risk. Never invest more than you can afford to lose, and always read the risk disclosure before trading.</p>
+          <summary>Are my funds safe with Tag Markets?</summary>
+          <p>Tag Markets is a regulated broker. Client funds are held in segregated accounts, separate from the company's operational funds. This is a standard regulatory requirement that protects your deposit. However, all trading involves market risk — your capital is at risk, and losses are possible. Please read the full risk disclosure.</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>What is the AITECH IB Portal?</summary>
+          <p>AITECH (aitech.ibportal.io) is the Introducing Broker management portal. It is used by the Sonic AI CopyX IB partner network to manage client onboarding, referral links, and copy trading setup on Tag Markets. When you register through the QR code or partner link on this page, you are linked to the IB partner for support.</p>
         </details>
       </div>
     </div>
@@ -349,16 +529,24 @@
           <a href="#hero" class="nav__logo" style="margin-bottom:14px;display:inline-flex;">
             <span class="logo-sonic">SONIC AI</span><span class="logo-ai">&nbsp;CopyX</span>
           </a>
-          <p>AI-powered gold copy trading through Tag Markets — managed by a certified IB Partner via the AITECH portal.</p>
+          <p>AI-powered gold copy trading via Tag Markets. Two account types — 12X and 24X. Automated, transparent, and fully regulated.</p>
+          <div class="footer__tagline">
+            <span>AI Powered</span>
+            <span>·</span>
+            <span>Data Driven</span>
+            <span>·</span>
+            <span>Results Proven</span>
+          </div>
         </div>
         <div class="footer__links">
           <div class="footer__col">
             <h4>Navigate</h4>
             <ul>
               <li><a href="#how-it-works">How It Works</a></li>
-              <li><a href="#why-gold">Why Gold</a></li>
-              <li><a href="#features">Features</a></li>
+              <li><a href="#accounts">Account Types</a></li>
+              <li><a href="#performance">Performance</a></li>
               <li><a href="#platform">Platform</a></li>
+              <li><a href="#faq">FAQ</a></li>
               <li><a href="#get-started">Get Started</a></li>
             </ul>
           </div>
@@ -372,22 +560,41 @@
         </div>
       </div>
 
+      <!-- Full Legal Disclaimer -->
       <div class="footer__disclaimer">
-        <h4>⚠️ Risk Disclaimer &amp; Legal Notice</h4>
+        <h4>⚠️ Full Risk Disclosure &amp; Legal Notice</h4>
         <p>
-          Trading foreign exchange, gold, and other financial instruments carries a high level of risk and may not be suitable for all investors.
-          The high degree of leverage can work against you as well as for you. Before deciding to trade, you should carefully consider your investment objectives,
-          level of experience, and risk appetite. There is a possibility that you could sustain a loss of some or all of your initial investment —
-          therefore you should not invest money that you cannot afford to lose.
-          Past performance is not indicative of future results. Copy trading involves following other traders and does not guarantee profit.
-          This website is operated by an independent Introducing Broker (IB) partner and is provided for informational and marketing purposes only.
-          It is not investment advice. Always read the full risk disclosure provided by Tag Markets before opening an account.
+          <strong>High Risk Warning:</strong> Trading Contract for Differences (CFDs), foreign exchange (Forex), gold (XAU/USD),
+          and other financial instruments on margin carries a high level of risk and may not be suitable for all investors.
+          The high degree of leverage can work against you as well as for you. Before deciding to trade, you should carefully
+          consider your investment objectives, level of experience, risk appetite, and financial situation.
+          You could sustain a loss of some or all of your initial investment — therefore you should not invest money you cannot afford to lose.
+        </p>
+        <p style="margin-top:10px;">
+          <strong>Copy Trading Risk:</strong> Copy trading involves replicating the trades of another trader or an automated system.
+          This does not reduce market risk. The performance of a copied trader or AI system is not guaranteed and may result in losses.
+          Past results — including all figures quoted on this website — are for illustrative purposes only and do not guarantee or predict future performance.
+          Results vary by account size, leverage, market conditions, and timing.
+        </p>
+        <p style="margin-top:10px;">
+          <strong>Not Investment Advice:</strong> This website is operated by an independent Introducing Broker (IB) partner and is
+          intended for marketing and informational purposes only. Nothing on this website constitutes financial, investment, legal, or tax advice.
+          You should seek independent professional advice before making any investment decision.
+        </p>
+        <p style="margin-top:10px;">
+          <strong>Regulatory Notice:</strong> Tag Markets is a regulated broker. Clients are encouraged to review Tag Markets' full terms,
+          conditions, and risk disclosures available on their official website at portal.tagmarkets.com before opening an account.
+          Regulatory protections and availability of products may vary by jurisdiction. This service may not be available in all countries.
+        </p>
+        <p style="margin-top:10px;">
+          <strong>Leverage Notice:</strong> The 12X and 24X account types refer to leverage multipliers applied to copy positions.
+          Higher leverage (24X) increases both potential profits and potential losses. Ensure you fully understand leverage risk before selecting an account type.
         </p>
       </div>
 
       <div class="footer__bottom">
-        <p>© 2026 Sonic AI CopyX. All rights reserved.</p>
-        <p>Introducing Broker services provided through Tag Markets &amp; AITECH IB Portal.</p>
+        <p>© 2026 Sonic AI CopyX. All rights reserved. Introducing Broker services via Tag Markets &amp; AITECH IB Portal.</p>
+        <p>This website is not operated by Tag Markets. It is run by an independent IB partner. Capital at risk.</p>
       </div>
     </div>
   </footer>

@@ -1,3 +1,12 @@
+/* ─── RISK BANNER CLOSE ─── */
+const closeBanner = document.getElementById('closeBanner');
+if (closeBanner) {
+  closeBanner.addEventListener('click', () => {
+    const banner = closeBanner.closest('.risk-banner');
+    if (banner) banner.style.display = 'none';
+  });
+}
+
 /* ─── NAV SCROLL ─── */
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
