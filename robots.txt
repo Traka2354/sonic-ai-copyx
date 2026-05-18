@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://traka2354.github.io/sonic-ai-copyx/sitemap.xml
