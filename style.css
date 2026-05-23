@@ -1622,3 +1622,77 @@ p  { color: var(--muted); font-size: .97rem; }
 /* ─── LANGUAGE SWITCHER BODY CLASS ─── */
 body.lang-hr .en { display: none !important; }
 body:not(.lang-hr) .hr { display: none !important; }
+
+/* ─── BONUS PROMO ─── */
+.bonus-promo {
+  margin-top: 4px;
+  padding: 16px;
+  background: linear-gradient(135deg, rgba(41,121,255,.08), rgba(96,200,255,.06));
+  border: 1px solid rgba(41,121,255,.35);
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+}
+.bonus-promo::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #2979FF, #60C8FF, #a78bfa, #2979FF);
+  background-size: 200% 100%;
+  animation: shimmer-line 2s linear infinite;
+}
+@keyframes shimmer-line {
+  0%   { background-position: 0% 0; }
+  100% { background-position: 200% 0; }
+}
+.bonus-promo__badge {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 3px 10px;
+  background: linear-gradient(135deg, #2979FF, #60C8FF);
+  border-radius: 99px;
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  color: #fff;
+  text-transform: uppercase;
+  animation: pulse-badge 2s ease-in-out infinite;
+}
+@keyframes pulse-badge {
+  0%,100% { box-shadow: 0 0 0 0 rgba(41,121,255,.4); }
+  50%      { box-shadow: 0 0 0 6px rgba(41,121,255,0); }
+}
+.bonus-promo__text {
+  font-size: .84rem;
+  color: var(--text);
+  line-height: 1.5;
+  margin: 0;
+}
+.bonus-promo__text strong { color: var(--gold-light); }
+.bonus-promo__code {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: rgba(0,0,0,.3);
+  border: 1px dashed rgba(96,200,255,.4);
+  border-radius: var(--radius-sm);
+}
+.bonus-promo__code-label {
+  font-size: .75rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+.bonus-promo__code-value {
+  font-family: 'Orbitron', monospace;
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: #60C8FF;
+  letter-spacing: .12em;
+  text-shadow: 0 0 12px rgba(96,200,255,.5);
+}
