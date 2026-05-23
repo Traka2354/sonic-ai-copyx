@@ -1696,3 +1696,29 @@ body:not(.lang-hr) .hr { display: none !important; }
   letter-spacing: .12em;
   text-shadow: 0 0 12px rgba(96,200,255,.5);
 }
+
+/* ─── MONTHLY PERFORMANCE CARD ─── */
+.perf-card--monthly {
+  border-color: rgba(41,121,255,.45);
+  background: linear-gradient(135deg, rgba(41,121,255,.10), rgba(96,200,255,.06));
+  grid-column: 1 / -1;
+}
+.perf-monthly-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin: 14px 0;
+  padding: 14px;
+  background: rgba(0,0,0,.25);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(41,121,255,.2);
+}
+.perf-monthly-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: .88rem;
+}
+.perf-monthly-label { color: var(--muted); }
+.perf-monthly-value { font-weight: 700; color: var(--text); }
+.perf-monthly-winrate { font-size: 1.1rem; font-weight: 900; color: var(--gold-light); }
