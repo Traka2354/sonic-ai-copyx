@@ -1064,6 +1064,14 @@ p  { color: var(--muted); font-size: .97rem; }
 }
 .btn--tg:hover { filter: brightness(1.12); transform: translateY(-1px); box-shadow: 0 8px 28px rgba(34,158,217,.5); }
 
+/* ─── WHATSAPP BUTTON ─── */
+.btn--wa {
+  background: #25D366;
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(37,211,102,.35);
+}
+.btn--wa:hover { filter: brightness(1.1); transform: translateY(-1px); box-shadow: 0 8px 28px rgba(37,211,102,.5); }
+
 /* ─── TELEGRAM JOIN CARD ─── */
 .tg-join-card {
   display: flex;
