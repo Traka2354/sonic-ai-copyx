@@ -1731,3 +1731,69 @@ body:not(.lang-hr) .hr { display: none !important; }
 .perf-monthly-value { font-weight: 700; color: var(--text); }
 .perf-monthly-winrate { font-size: 1.1rem; font-weight: 900; color: var(--gold-light); }
 .perf-result__net { display: block; font-size: .75rem; color: var(--muted); margin-top: 2px; }
+
+/* ─── JUNE 2026 NEWS FLASH ─── */
+.news-flash {
+  padding: 80px 0;
+  background: linear-gradient(160deg, rgba(41,121,255,.08) 0%, rgba(7,10,20,1) 60%);
+  border-top: 1px solid rgba(41,121,255,.2);
+  border-bottom: 1px solid rgba(41,121,255,.2);
+  position: relative;
+  overflow: hidden;
+}
+.news-flash::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 350px; height: 350px;
+  background: radial-gradient(circle, rgba(41,121,255,.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.news-flash__header { text-align: center; margin-bottom: 48px; }
+.news-flash__badge {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  color: #000;
+  font-weight: 800;
+  font-size: .8rem;
+  letter-spacing: .08em;
+  padding: 6px 18px;
+  border-radius: 40px;
+  margin-bottom: 16px;
+}
+.news-flash__title { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; color: var(--text); margin-bottom: 10px; }
+.news-flash__sub { color: var(--muted); font-size: 1rem; }
+
+.news-flash__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+.news-card {
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(41,121,255,.18);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  transition: transform .25s, border-color .25s, box-shadow .25s;
+}
+.news-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(41,121,255,.45);
+  box-shadow: 0 8px 28px rgba(41,121,255,.15);
+}
+.news-card--highlight {
+  border-color: rgba(41,121,255,.45);
+  background: linear-gradient(135deg, rgba(41,121,255,.12), rgba(96,200,255,.06));
+}
+.news-card__icon { font-size: 2rem; margin-bottom: 12px; }
+.news-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--gold-light); margin-bottom: 8px; }
+.news-card p { font-size: .9rem; color: var(--muted); line-height: 1.65; }
+.news-card p strong { color: var(--text); }
+
+.news-flash__cta {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
