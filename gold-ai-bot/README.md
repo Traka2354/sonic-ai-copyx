@@ -57,7 +57,7 @@ MT5 naloga na tvoj nalog.
 
 ```
 python bot.py        # zivi bot (demo ili live, prema ACCOUNT_MODE)
-python signal.py     # SIGNAL MODE: daj signal sa entry/SL/TP, ne trguj
+python signals.py    # SIGNAL MODE: daj signal sa entry/SL/TP, ne trguj
 python backtest.py   # backtest deterministicke strategije
 ```
 
@@ -83,7 +83,7 @@ Popuni `TELEGRAM_TOKEN` i `TELEGRAM_CHAT_ID` u `.env`, pa testiraj:
 ```
 python notify.py "Pozdrav sa bota"
 ```
-Nakon toga `signal.py` i `bot.py` automatski salju obavestenja na tvoj telefon.
+Nakon toga `signals.py` i `bot.py` automatski salju obavestenja na tvoj telefon.
 
 ## VPS deployment (Windows) — preporuceno za 24/5 rad
 
@@ -137,7 +137,7 @@ gold-ai-bot/
 ├── guards.py            # circuit breakeri (dnevni limit/target, cooldown)
 ├── copier.py            # copy trading master -> slave
 ├── bot.py               # glavna petlja
-├── signal.py            # SIGNAL MODE - daj signal, ne trguj (radi i na Macu)
+├── signals.py           # SIGNAL MODE - daj signal, ne trguj (radi i na Macu)
 ├── data_source.py       # besplatna cena zlata sa weba (za signal mode)
 ├── notify.py            # Telegram obavestenja (signali na iPhone/Android)
 ├── backtest.py          # backtest skelet

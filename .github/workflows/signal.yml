@@ -47,4 +47,4 @@ jobs:
           AI_MODEL: "claude-opus-4-7"
           AI_WEB_RESEARCH: "true"
           SYMBOL: "XAUUSD.f"
-        run: python signal.py
+        run: python signals.py
