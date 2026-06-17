@@ -24,6 +24,15 @@ import sys
 import urllib.parse
 import urllib.request
 
+# Ucitaj .env i kada se pokrene samostalno (python notify.py "..."),
+# inace TELEGRAM_TOKEN/CHAT_ID ne bi bili dostupni.
+try:
+    from dotenv import load_dotenv
+
+    load_dotenv()
+except ImportError:
+    pass
+
 log = logging.getLogger("notify")
 
 _API = "https://api.telegram.org/bot{token}/sendMessage"
