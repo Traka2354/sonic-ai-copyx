@@ -18,6 +18,7 @@ import os
 
 import config
 import data_source
+import notify
 import risk
 from research import ai_analyst, news
 
@@ -139,6 +140,9 @@ def generate() -> None:
     os.makedirs(state_dir, exist_ok=True)
     with open(os.path.join(state_dir, "signals.log"), "a", encoding="utf-8") as f:
         f.write(text)
+
+    # posalji na Telegram (ako je konfigurisan) - za iPhone/Android obavestenja
+    notify.send(text)
 
 
 if __name__ == "__main__":

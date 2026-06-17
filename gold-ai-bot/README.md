@@ -69,6 +69,22 @@ ispise gotov signal: entry, SL, TP, i predlog lota (ako postavis
 `SIGNAL_BALANCE=<balans>` u `.env`). Idealno dok ceka VPS — radi odmah na
 laptopu. Trebaju ti samo `ANTHROPIC_API_KEY` i internet.
 
+### Telegram obavestenja (signali na iPhone/Android)
+
+Signali i bot alarmi (otvorena pozicija, tvrdi stop) idu pravo na telefon
+preko Telegram bota. Setup u 3 koraka:
+
+1. U Telegramu pretrazi **@BotFather**, posalji `/newbot`, dobijes **TOKEN**.
+2. Posalji bilo kakvu poruku tvom novom botu (mora bar jednom).
+3. Otvori `https://api.telegram.org/bot<TOKEN>/getUpdates` u browseru, pronadji
+   `"chat":{"id": ...}` — to je **CHAT_ID**.
+
+Popuni `TELEGRAM_TOKEN` i `TELEGRAM_CHAT_ID` u `.env`, pa testiraj:
+```
+python notify.py "Pozdrav sa bota"
+```
+Nakon toga `signal.py` i `bot.py` automatski salju obavestenja na tvoj telefon.
+
 ## VPS deployment (Windows) — preporuceno za 24/5 rad
 
 Bot mora da radi non-stop, a laptop se uspava/zatvara — zato ide na **Windows
@@ -123,6 +139,7 @@ gold-ai-bot/
 ├── bot.py               # glavna petlja
 ├── signal.py            # SIGNAL MODE - daj signal, ne trguj (radi i na Macu)
 ├── data_source.py       # besplatna cena zlata sa weba (za signal mode)
+├── notify.py            # Telegram obavestenja (signali na iPhone/Android)
 ├── backtest.py          # backtest skelet
 ├── setup.bat            # jednokratni setup na Windows VPS-u
 ├── run.bat              # pokretanje sa auto-restartom

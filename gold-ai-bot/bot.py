@@ -14,6 +14,7 @@ import time
 import config
 import copier
 import filters
+import notify
 import risk
 import trade_manager
 from guards import RiskGuard
@@ -110,6 +111,12 @@ def maybe_trade(
         signal.direction.upper(), entry, plan.volume,
         plan.sl_price, plan.sl_money, plan.tp_price, plan.tp_money,
     )
+    notify.send(
+        f"[OTVOREN] {signal.direction.upper()} {cfg.symbol} @ {entry:.2f}\n"
+        f"Lot: {plan.volume:.2f} | SL: {plan.sl_price:.2f} (-{plan.sl_money:.2f}$) "
+        f"| TP: {plan.tp_price:.2f} (+{plan.tp_money:.2f}$)\n"
+        f"Sigurnost: {signal.confidence*100:.0f}% | {signal.reasoning}"
+    )
 
 
 def _flatten(client: MT5Client, cfg: config.Config) -> None:
@@ -122,6 +129,10 @@ def _flatten(client: MT5Client, cfg: config.Config) -> None:
             log.error("Ne mogu da zatvorim #%s: %s", p.ticket, e)
     if positions:
         log.warning("Zatvoreno %s pozicija (tvrdi stop / zastita naloga).", len(positions))
+        notify.send(
+            f"[TVRDI STOP] {cfg.symbol}: probijen drawdown limit. "
+            f"Zatvoreno {len(positions)} pozicija. Pauza do kraja dana."
+        )
 
 
 def main() -> None:
