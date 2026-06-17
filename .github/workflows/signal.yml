@@ -1,0 +1,50 @@
+name: Gold AI Signal
+
+# Pokrece signal.py na GitHub-ovom besplatnom serveru i salje signal na Telegram.
+# Nista se ne instalira lokalno - radi sa iPhone-a (samo postavis tajne podatke
+# u repo Settings i pokreces workflow iz GitHub mobilne aplikacije).
+on:
+  # Rucni okidac iz GitHub UI (radi i sa mobilne aplikacije: Actions -> Run workflow)
+  workflow_dispatch: {}
+
+  # Automatsko pokretanje u likvidnim satima (London/NY), pon-pet.
+  # NAPOMENA: schedule okidac radi SAMO ako je ovaj fajl na default grani (main).
+  schedule:
+    - cron: "0 7-21 * * 1-5"
+
+jobs:
+  signal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: gold-ai-bot/requirements.txt
+
+      - name: Install dependencies
+        working-directory: gold-ai-bot
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Generate and push signal
+        working-directory: gold-ai-bot
+        env:
+          # Tajne (postavi u: repo Settings -> Secrets and variables -> Actions)
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          # Opciono - balans za predlog lota
+          SIGNAL_BALANCE: ${{ secrets.SIGNAL_BALANCE }}
+          # Fiksna podesavanja za signal mode
+          AI_ENABLED: "true"
+          AI_MODEL: "claude-opus-4-7"
+          AI_WEB_RESEARCH: "true"
+          SYMBOL: "XAUUSD.f"
+        run: python signal.py
