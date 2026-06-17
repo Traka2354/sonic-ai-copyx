@@ -57,8 +57,17 @@ MT5 naloga na tvoj nalog.
 
 ```
 python bot.py        # zivi bot (demo ili live, prema ACCOUNT_MODE)
+python signal.py     # SIGNAL MODE: daj signal sa entry/SL/TP, ne trguj
 python backtest.py   # backtest deterministicke strategije
 ```
+
+### Signal mode (radi i na Macu — ne treba MT5)
+
+Za rucni unos signala u MT5 mobilni/desktop. Bot povlaci cenu zlata sa weba
+(Yahoo GC=F), AI analiticar vraca smer + sigurnost + obrazlozenje, i bot
+ispise gotov signal: entry, SL, TP, i predlog lota (ako postavis
+`SIGNAL_BALANCE=<balans>` u `.env`). Idealno dok ceka VPS — radi odmah na
+laptopu. Trebaju ti samo `ANTHROPIC_API_KEY` i internet.
 
 ## VPS deployment (Windows) — preporuceno za 24/5 rad
 
@@ -112,6 +121,8 @@ gold-ai-bot/
 ├── guards.py            # circuit breakeri (dnevni limit/target, cooldown)
 ├── copier.py            # copy trading master -> slave
 ├── bot.py               # glavna petlja
+├── signal.py            # SIGNAL MODE - daj signal, ne trguj (radi i na Macu)
+├── data_source.py       # besplatna cena zlata sa weba (za signal mode)
 ├── backtest.py          # backtest skelet
 ├── setup.bat            # jednokratni setup na Windows VPS-u
 ├── run.bat              # pokretanje sa auto-restartom
