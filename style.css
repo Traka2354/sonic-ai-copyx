@@ -1247,6 +1247,78 @@ p  { color: var(--muted); font-size: .97rem; }
   .countdown-bar__suffix { display: none; }
 }
 
+/* ─── 24X ACTIVATION AD BANNER ─── */
+.activation-banner {
+  position: relative;
+  z-index: 198;
+  background: linear-gradient(90deg, #0d3a22, #0a2e1c, #0d3a22);
+  background-size: 200% 100%;
+  animation: activation-shimmer 6s linear infinite;
+  border-bottom: 1px solid rgba(37,211,102,.4);
+}
+@keyframes activation-shimmer {
+  0%   { background-position: 0% 0; }
+  100% { background-position: 200% 0; }
+}
+.activation-banner__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 10px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.activation-banner__badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  background: linear-gradient(135deg, #25D366, #1aa852);
+  border-radius: 99px;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  color: #fff;
+  text-transform: uppercase;
+  white-space: nowrap;
+  animation: pulse-badge-green 2s ease-in-out infinite;
+}
+@keyframes pulse-badge-green {
+  0%,100% { box-shadow: 0 0 0 0 rgba(37,211,102,.45); }
+  50%      { box-shadow: 0 0 0 6px rgba(37,211,102,0); }
+}
+.activation-banner__text {
+  margin: 0;
+  font-size: .85rem;
+  color: #C9F5DC;
+  line-height: 1.4;
+}
+.activation-banner__text strong { color: #fff; }
+.activation-banner__cta {
+  padding: 7px 16px;
+  font-size: .8rem;
+  white-space: nowrap;
+}
+.activation-banner__close {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #C9F5DC;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 4px;
+}
+@media (max-width: 600px) {
+  .activation-banner__inner { padding: 10px 40px; gap: 8px; }
+  .activation-banner__text { font-size: .78rem; }
+}
+
 /* ─── LANGUAGE BUTTON ─── */
 .lang-btn {
   background: transparent;

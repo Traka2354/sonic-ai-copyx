@@ -7,6 +7,15 @@ if (closeBanner) {
   });
 }
 
+/* ─── ACTIVATION BANNER CLOSE ─── */
+const closeActivationBanner = document.getElementById('closeActivationBanner');
+if (closeActivationBanner) {
+  closeActivationBanner.addEventListener('click', () => {
+    const banner = closeActivationBanner.closest('.activation-banner');
+    if (banner) banner.style.display = 'none';
+  });
+}
+
 /* ─── NAV SCROLL ─── */
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
