@@ -1247,6 +1247,78 @@ p  { color: var(--muted); font-size: .97rem; }
   .countdown-bar__suffix { display: none; }
 }
 
+/* ─── 24X ACTIVATION AD BANNER ─── */
+.activation-banner {
+  position: relative;
+  z-index: 198;
+  background: linear-gradient(90deg, #0d3a22, #0a2e1c, #0d3a22);
+  background-size: 200% 100%;
+  animation: activation-shimmer 6s linear infinite;
+  border-bottom: 1px solid rgba(37,211,102,.4);
+}
+@keyframes activation-shimmer {
+  0%   { background-position: 0% 0; }
+  100% { background-position: 200% 0; }
+}
+.activation-banner__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 10px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.activation-banner__badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  background: linear-gradient(135deg, #25D366, #1aa852);
+  border-radius: 99px;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  color: #fff;
+  text-transform: uppercase;
+  white-space: nowrap;
+  animation: pulse-badge-green 2s ease-in-out infinite;
+}
+@keyframes pulse-badge-green {
+  0%,100% { box-shadow: 0 0 0 0 rgba(37,211,102,.45); }
+  50%      { box-shadow: 0 0 0 6px rgba(37,211,102,0); }
+}
+.activation-banner__text {
+  margin: 0;
+  font-size: .85rem;
+  color: #C9F5DC;
+  line-height: 1.4;
+}
+.activation-banner__text strong { color: #fff; }
+.activation-banner__cta {
+  padding: 7px 16px;
+  font-size: .8rem;
+  white-space: nowrap;
+}
+.activation-banner__close {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #C9F5DC;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 4px;
+}
+@media (max-width: 600px) {
+  .activation-banner__inner { padding: 10px 40px; gap: 8px; }
+  .activation-banner__text { font-size: .78rem; }
+}
+
 /* ─── LANGUAGE BUTTON ─── */
 .lang-btn {
   background: transparent;
@@ -1849,4 +1921,90 @@ body:not(.lang-hr) .hr { display: none !important; }
   gap: 16px;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+/* ─── ACTIVATION STEPS ─── */
+.activation-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 560px;
+  margin: 0 auto 32px;
+}
+.activation-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 14px 18px;
+  background: rgba(41,121,255,.07);
+  border: 1px solid rgba(41,121,255,.2);
+  border-radius: var(--radius-sm);
+}
+.activation-step__num {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2979FF, #60C8FF);
+  color: #fff;
+  font-weight: 900;
+  font-size: .9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.activation-step__text {
+  font-size: .88rem;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* ─── ACTIVATION CALLOUT ─── */
+.activation-callout {
+  max-width: 560px;
+  margin: 0 auto 40px;
+  display: flex;
+  gap: 16px;
+  padding: 20px;
+  background: linear-gradient(135deg, rgba(37,211,102,.1), rgba(37,211,102,.05));
+  border: 1.5px solid rgba(37,211,102,.45);
+  border-radius: var(--radius);
+  position: relative;
+  overflow: hidden;
+}
+.activation-callout::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #25D366, #1aa852, #25D366);
+  background-size: 200% 100%;
+  animation: shimmer-line 2s linear infinite;
+}
+.activation-callout__icon {
+  font-size: 1.6rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.activation-callout__body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.activation-callout__title {
+  margin: 0;
+  font-weight: 800;
+  font-size: .95rem;
+  color: #25D366;
+  letter-spacing: .01em;
+}
+.activation-callout__sub {
+  margin: 0;
+  font-size: .83rem;
+  color: var(--text);
+  line-height: 1.5;
+}
+.activation-callout__sub strong { color: #fff; }
+@media (max-width: 600px) {
+  .activation-callout { flex-direction: column; gap: 10px; }
 }
