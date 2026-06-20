@@ -122,23 +122,43 @@ document.querySelectorAll('.faq-item summary').forEach(summary => {
   });
 });
 
-/* ─── COUNTDOWN TIMER — next Friday 21:00 UTC ─── */
+/* ─── COUNTDOWN TIMER — Mon-Fri market hours ─── */
 (function initCountdown() {
-  function getNextFriday2100() {
-    const now = new Date();
-    const target = new Date(now);
-    // Set to Friday (5) at 21:00 UTC
-    target.setUTCHours(21, 0, 0, 0);
-    const day = target.getUTCDay(); // 0=Sun, 5=Fri
-    let daysUntilFriday = (5 - day + 7) % 7;
-    if (daysUntilFriday === 0 && now >= target) {
-      daysUntilFriday = 7;
-    }
-    target.setUTCDate(target.getUTCDate() + daysUntilFriday);
-    return target;
+  // Market: Mon 00:00 UTC open → Fri 21:00 UTC close
+  const OPEN_DAY = 1;   // Monday
+  const OPEN_H   = 0;
+  const CLOSE_DAY = 5;  // Friday
+  const CLOSE_H   = 21;
+
+  function isMarketOpen(now) {
+    const day = now.getUTCDay();
+    const h   = now.getUTCHours();
+    if (day === 0 || day === 6) return false;                // Sun/Sat always closed
+    if (day === CLOSE_DAY && h >= CLOSE_H) return false;    // Fri after 21:00
+    return true;
+  }
+
+  function getNextOpen(now) {
+    const t = new Date(now);
+    let daysToMon = (OPEN_DAY - t.getUTCDay() + 7) % 7;
+    if (daysToMon === 0) daysToMon = 7; // already Monday but market closed → next Mon
+    t.setUTCDate(t.getUTCDate() + daysToMon);
+    t.setUTCHours(OPEN_H, 0, 0, 0);
+    return t;
+  }
+
+  function getNextClose(now) {
+    const t = new Date(now);
+    let daysToFri = (CLOSE_DAY - t.getUTCDay() + 7) % 7;
+    if (daysToFri === 0 && now.getUTCHours() >= CLOSE_H) daysToFri = 7;
+    t.setUTCDate(t.getUTCDate() + daysToFri);
+    t.setUTCHours(CLOSE_H, 0, 0, 0);
+    return t;
   }
 
   const bar     = document.getElementById('countdownBar');
+  const elLabel  = document.getElementById('cdLabel');
+  const elSuffix = document.getElementById('cdSuffix');
   const elDays  = document.getElementById('cdDays');
   const elHours = document.getElementById('cdHours');
   const elMins  = document.getElementById('cdMins');
@@ -149,25 +169,19 @@ document.querySelectorAll('.faq-item summary').forEach(summary => {
   function pad(n) { return String(n).padStart(2, '0'); }
 
   function tick() {
-    const now    = new Date();
-    const target = getNextFriday2100();
-    const diff   = target - now;
+    const now  = new Date();
+    const open = isMarketOpen(now);
+    const target = open ? getNextClose(now) : getNextOpen(now);
+    const diff = target - now;
 
-    if (diff <= 0) {
-      if (bar) bar.style.display = 'none';
-      return;
-    }
+    if (elLabel)  elLabel.textContent  = open ? '📈 Trading ends in:' : '⏱ Trading starts in:';
+    if (elSuffix) elSuffix.textContent = open ? '— market open Mon–Fri' : '— market opens Monday 00:00 UTC';
 
-    const totalSecs = Math.floor(diff / 1000);
-    const d = Math.floor(totalSecs / 86400);
-    const h = Math.floor((totalSecs % 86400) / 3600);
-    const m = Math.floor((totalSecs % 3600) / 60);
-    const s = totalSecs % 60;
-
-    elDays.textContent  = pad(d);
-    elHours.textContent = pad(h);
-    elMins.textContent  = pad(m);
-    elSecs.textContent  = pad(s);
+    const totalSecs = Math.max(0, Math.floor(diff / 1000));
+    elDays.textContent  = pad(Math.floor(totalSecs / 86400));
+    elHours.textContent = pad(Math.floor((totalSecs % 86400) / 3600));
+    elMins.textContent  = pad(Math.floor((totalSecs % 3600) / 60));
+    elSecs.textContent  = pad(totalSecs % 60);
   }
 
   tick();
