@@ -1131,16 +1131,16 @@ p  { color: var(--muted); font-size: .97rem; }
   align-items: center;
   gap: 8px;
   padding: 12px 20px;
-  background: #229ED9;
+  background: #25D366;
   color: #fff;
   border-radius: 99px;
   font-weight: 700;
   font-size: .88rem;
   text-decoration: none;
-  box-shadow: 0 4px 24px rgba(34,158,217,.45);
+  box-shadow: 0 4px 24px rgba(37,211,102,.45);
   transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
 }
-.tg-float:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(34,158,217,.6); background: #1a8bbf; }
+.tg-float:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(37,211,102,.6); background: #1db954; }
 .tg-float__label { white-space: nowrap; }
 
 @media (max-width: 480px) {
