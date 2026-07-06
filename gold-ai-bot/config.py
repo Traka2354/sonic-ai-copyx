@@ -96,6 +96,13 @@ class AIConfig:
 
 
 @dataclass
+class StrategyConfig:
+    type: str                # "ai" | "grid" | "breakout"
+    price_trigger_delta: float
+    breakout_lookback: int
+
+
+@dataclass
 class CopyConfig:
     enabled: bool
     master: Account
@@ -113,6 +120,7 @@ class Config:
     filters: Filters
     guards: Guards
     ai: AIConfig
+    strategy: StrategyConfig
     copy: CopyConfig
     poll_interval_sec: int
 
@@ -184,6 +192,11 @@ def load() -> Config:
             api_key=os.getenv("ANTHROPIC_API_KEY", "") or "",
             model=os.getenv("AI_MODEL", "claude-opus-4-7") or "claude-opus-4-7",
             web_research=_b("AI_WEB_RESEARCH", True),
+        ),
+        strategy=StrategyConfig(
+            type=(os.getenv("STRATEGY", "ai") or "ai").strip().lower(),
+            price_trigger_delta=_f("PRICE_TRIGGER_DELTA", 5.0),
+            breakout_lookback=_i("BREAKOUT_LOOKBACK", 20),
         ),
         copy=CopyConfig(
             enabled=_b("COPY_ENABLED", False),

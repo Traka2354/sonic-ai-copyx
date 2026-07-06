@@ -21,6 +21,7 @@ import data_source
 import notify
 import risk
 from research import ai_analyst, news
+from strategies import price_trigger
 
 logging.basicConfig(
     level=os.getenv("LOG_LEVEL", "WARNING"),
@@ -48,13 +49,24 @@ def _suggest_position(price: float, sl_distance: float, balance: float, params, 
     }
 
 
+class _RuleSignal:
+    """Adapter da rule strategija ima isti interfejs kao AI signal."""
+
+    def __init__(self, rule):
+        self.direction = rule.direction
+        self.confidence = 1.0
+        self.reasoning = rule.reason
+        self.key_factors: list[str] = []
+
+
 def _format_signal(cfg, signal, price, sl_distance, balance: float) -> str:
     now = _dt.datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
     bar = "=" * 64
+    label = cfg.strategy.type.upper() if cfg.strategy.type != "ai" else "AI"
     out = [
         "",
         bar,
-        f"  GOLD AI SIGNAL  |  {now}  |  {cfg.symbol} ~{price:.2f}  (izvor: Yahoo GC=F)",
+        f"  GOLD {label} SIGNAL  |  {now}  |  {cfg.symbol} ~{price:.2f}  (izvor: Yahoo GC=F)",
         bar,
         f"  Smer:        {signal.direction.upper()}",
         f"  Sigurnost:   {signal.confidence * 100:.0f}%",
@@ -107,9 +119,6 @@ def _format_signal(cfg, signal, price, sl_distance, balance: float) -> str:
 
 def generate() -> None:
     cfg = config.load()
-    if not cfg.ai.api_key:
-        print("Nedostaje ANTHROPIC_API_KEY u .env - signal mod ga zahteva.")
-        return
 
     highs, lows, closes = data_source.fetch_ohlc(interval="15m", days="5d")
     if not closes:
@@ -117,19 +126,27 @@ def generate() -> None:
         return
 
     price = closes[-1]
-    technical = risk.technical_summary(closes)
     atr_value = risk.atr(highs, lows, closes, cfg.risk.atr_period)
     sl_distance = atr_value * cfg.risk.atr_sl_mult if atr_value else price * cfg.risk.sl_fallback_pct
 
-    headlines = news.fetch_headlines() if cfg.ai.web_research else []
-    signal = ai_analyst.get_signal(
-        api_key=cfg.ai.api_key,
-        model=cfg.ai.model,
-        symbol=cfg.symbol,
-        technical=technical,
-        web_research=cfg.ai.web_research,
-        extra_headlines=headlines,
-    )
+    if cfg.strategy.type in ("grid", "breakout"):
+        rule = price_trigger.evaluate(cfg, closes)
+        signal = _RuleSignal(rule)
+    else:
+        if not cfg.ai.api_key:
+            print("Nedostaje ANTHROPIC_API_KEY u .env - AI signal mod ga zahteva.")
+            print("(Za rule strategiju postavi STRATEGY=grid ili STRATEGY=breakout u .env.)")
+            return
+        technical = risk.technical_summary(closes)
+        headlines = news.fetch_headlines() if cfg.ai.web_research else []
+        signal = ai_analyst.get_signal(
+            api_key=cfg.ai.api_key,
+            model=cfg.ai.model,
+            symbol=cfg.symbol,
+            technical=technical,
+            web_research=cfg.ai.web_research,
+            extra_headlines=headlines,
+        )
 
     balance = float(os.getenv("SIGNAL_BALANCE", "0") or 0)
     text = _format_signal(cfg, signal, price, sl_distance, balance)

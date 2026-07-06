@@ -12,6 +12,13 @@ MT5 naloga na tvoj nalog.
 
 ## Sta radi
 
+- **Strategija** — biraš u `.env` preko `STRATEGY`:
+  - `ai` (default) — Claude analitičar sa web istraživanjem.
+  - `grid` (`strategies/price_trigger.py`) — kupi na pad od `PRICE_TRIGGER_DELTA`
+    (npr. $5), prodaj na rast; posle svakog trejda referentna cena se resetuje.
+    Referenca se pamti u `logs/strategy_state.json` (preživljava restart).
+  - `breakout` — udji na probijanje high/low poslednjih `BREAKOUT_LOOKBACK`
+    barova + `PRICE_TRIGGER_DELTA`.
 - **AI mozak** (`research/ai_analyst.py`) — Claude (Opus 4.7) sa `web_search`
   alatom: prikuplja drivere za zlato (DXY/USD, prinosi, FED, inflacija,
   geopolitika) i vraca strukturisanu odluku + sigurnost + razlog.

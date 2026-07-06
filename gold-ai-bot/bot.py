@@ -20,6 +20,7 @@ import trade_manager
 from guards import RiskGuard
 from mt5_client import MT5Client
 from research import ai_analyst, news
+from strategies import price_trigger
 
 
 def _setup_logging() -> None:
@@ -62,27 +63,37 @@ def maybe_trade(
         log.info("Van sati trgovanja (UTC). Bez novih ulazaka.")
         return
 
-    technical = risk.technical_summary(closes)
-    headlines = news.fetch_headlines() if cfg.ai.web_research else []
+    # bira strategiju: ai (default) ili deterministicka (grid/breakout)
+    strategy_kind = cfg.strategy.type
+    if strategy_kind in ("grid", "breakout"):
+        rule = price_trigger.evaluate(cfg, closes)
+        log.info("%s signal: %s - %s", strategy_kind.upper(), rule.direction, rule.reason)
+        direction = rule.direction
+        confidence = 1.0                  # deterministicka strategija, puna sigurnost
+        reasoning = rule.reason
+    else:
+        if not cfg.ai.enabled:
+            log.info("AI je iskljucen (AI_ENABLED=false). Nema novih trejdova.")
+            return
+        technical = risk.technical_summary(closes)
+        headlines = news.fetch_headlines() if cfg.ai.web_research else []
+        ai_signal = ai_analyst.get_signal(
+            api_key=cfg.ai.api_key,
+            model=cfg.ai.model,
+            symbol=cfg.symbol,
+            technical=technical,
+            web_research=cfg.ai.web_research,
+            extra_headlines=headlines,
+        )
+        log.info("AI signal: %s (%.0f%%) - %s", ai_signal.direction, ai_signal.confidence * 100, ai_signal.reasoning)
+        direction = ai_signal.direction
+        confidence = ai_signal.confidence
+        reasoning = ai_signal.reasoning
 
-    if not cfg.ai.enabled:
-        log.info("AI je iskljucen (AI_ENABLED=false). Nema novih trejdova.")
+    if direction == "hold":
         return
-
-    signal = ai_analyst.get_signal(
-        api_key=cfg.ai.api_key,
-        model=cfg.ai.model,
-        symbol=cfg.symbol,
-        technical=technical,
-        web_research=cfg.ai.web_research,
-        extra_headlines=headlines,
-    )
-    log.info("AI signal: %s (%.0f%%) - %s", signal.direction, signal.confidence * 100, signal.reasoning)
-
-    if signal.direction == "hold":
-        return
-    if signal.confidence < cfg.risk.min_confidence:
-        log.info("Sigurnost ispod praga (%.2f < %.2f). Preskacem.", signal.confidence, cfg.risk.min_confidence)
+    if confidence < cfg.risk.min_confidence:
+        log.info("Sigurnost ispod praga (%.2f < %.2f). Preskacem.", confidence, cfg.risk.min_confidence)
         return
 
     balance = client.account_balance()
@@ -93,29 +104,30 @@ def maybe_trade(
         log.info("Spread prevelik (%.2f). Preskacem ulaz.", tick.ask - tick.bid)
         return
 
-    entry = tick.ask if signal.direction == "buy" else tick.bid
+    entry = tick.ask if direction == "buy" else tick.bid
     sl_distance = atr_value * cfg.risk.atr_sl_mult if atr_value else entry * cfg.risk.sl_fallback_pct
-    plan = risk.plan_trade(sym, signal.direction, entry, balance, cfg.risk, signal.confidence, sl_distance)
+    plan = risk.plan_trade(sym, direction, entry, balance, cfg.risk, confidence, sl_distance)
 
+    comment = f"{strategy_kind}-signal" if strategy_kind in ("grid", "breakout") else "ai-signal"
     client.open_market(
         symbol=cfg.symbol,
-        side=signal.direction,
+        side=direction,
         volume=plan.volume,
         sl=plan.sl_price,
         tp=plan.tp_price,
         magic=cfg.risk.bot_magic,
-        comment="ai-signal",
+        comment=comment,
     )
     log.info(
         "Izvrsen %s @ %.2f | lot %.2f | SL %.2f (-%.2f) | TP %.2f (+%.2f)",
-        signal.direction.upper(), entry, plan.volume,
+        direction.upper(), entry, plan.volume,
         plan.sl_price, plan.sl_money, plan.tp_price, plan.tp_money,
     )
     notify.send(
-        f"[OTVOREN] {signal.direction.upper()} {cfg.symbol} @ {entry:.2f}\n"
+        f"[OTVOREN {strategy_kind.upper()}] {direction.upper()} {cfg.symbol} @ {entry:.2f}\n"
         f"Lot: {plan.volume:.2f} | SL: {plan.sl_price:.2f} (-{plan.sl_money:.2f}$) "
         f"| TP: {plan.tp_price:.2f} (+{plan.tp_money:.2f}$)\n"
-        f"Sigurnost: {signal.confidence*100:.0f}% | {signal.reasoning}"
+        f"{reasoning}"
     )
 
 
