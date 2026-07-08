@@ -80,7 +80,7 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 })();
 
 /* ─── QR CODE GENERATION ─── */
-const PARTNER_URL = 'https://aitech.ibportal.io/auth/register?e=uxHzQEHidtHpyg4rd8YcgfCM0lROvpn4lGFvQU8bvEI&a=1';
+const PARTNER_URL = 'https://aitech.ibportal.io/auth/register?e=A5bWfvYo0wsKYy8opw8ogvxIAUG4MCiol9tNOtK_TKM&a=1';
 
 function generateQR(canvasId, url) {
   const canvas = document.getElementById(canvasId);
