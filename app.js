@@ -80,7 +80,7 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 })();
 
 /* ─── QR CODE GENERATION ─── */
-const PARTNER_URL = 'https://aitech.ibportal.io/auth/register?e=A5bWfvYo0wsKYy8opw8ogvxIAUG4MCiol9tNOtK_TKM&a=1';
+const PARTNER_URL = 'https://aitech.ibportal.io/auth/register?e=Jfruc4qICsnLhwy7KVb1lcQH95ZeFXi9_lSG9hqZgTA&a=1';
 
 function generateQR(canvasId, url) {
   const canvas = document.getElementById(canvasId);
@@ -124,24 +124,23 @@ document.querySelectorAll('.faq-item summary').forEach(summary => {
 
 /* ─── COUNTDOWN TIMER — Mon-Fri market hours ─── */
 (function initCountdown() {
-  // Market: Mon 00:00 UTC open → Fri 21:00 UTC close
-  const OPEN_DAY = 1;   // Monday
+  const OPEN_DAY = 1;
   const OPEN_H   = 0;
-  const CLOSE_DAY = 5;  // Friday
+  const CLOSE_DAY = 5;
   const CLOSE_H   = 21;
 
   function isMarketOpen(now) {
     const day = now.getUTCDay();
     const h   = now.getUTCHours();
-    if (day === 0 || day === 6) return false;                // Sun/Sat always closed
-    if (day === CLOSE_DAY && h >= CLOSE_H) return false;    // Fri after 21:00
+    if (day === 0 || day === 6) return false;
+    if (day === CLOSE_DAY && h >= CLOSE_H) return false;
     return true;
   }
 
   function getNextOpen(now) {
     const t = new Date(now);
     let daysToMon = (OPEN_DAY - t.getUTCDay() + 7) % 7;
-    if (daysToMon === 0) daysToMon = 7; // already Monday but market closed → next Mon
+    if (daysToMon === 0) daysToMon = 7;
     t.setUTCDate(t.getUTCDate() + daysToMon);
     t.setUTCHours(OPEN_H, 0, 0, 0);
     return t;
@@ -156,23 +155,23 @@ document.querySelectorAll('.faq-item summary').forEach(summary => {
     return t;
   }
 
-  const bar     = document.getElementById('countdownBar');
+  const bar      = document.getElementById('countdownBar');
   const elLabel  = document.getElementById('cdLabel');
   const elSuffix = document.getElementById('cdSuffix');
-  const elDays  = document.getElementById('cdDays');
-  const elHours = document.getElementById('cdHours');
-  const elMins  = document.getElementById('cdMins');
-  const elSecs  = document.getElementById('cdSecs');
+  const elDays   = document.getElementById('cdDays');
+  const elHours  = document.getElementById('cdHours');
+  const elMins   = document.getElementById('cdMins');
+  const elSecs   = document.getElementById('cdSecs');
 
   if (!bar || !elDays) return;
 
   function pad(n) { return String(n).padStart(2, '0'); }
 
   function tick() {
-    const now  = new Date();
-    const open = isMarketOpen(now);
+    const now    = new Date();
+    const open   = isMarketOpen(now);
     const target = open ? getNextClose(now) : getNextOpen(now);
-    const diff = target - now;
+    const diff   = target - now;
 
     if (elLabel)  elLabel.textContent  = open ? '📈 Trading ends in:' : '⏱ Trading starts in:';
     if (elSuffix) elSuffix.textContent = open ? '— market open Mon–Fri' : '— market opens Monday 00:00 UTC';
@@ -264,18 +263,17 @@ document.querySelectorAll('.faq-item summary').forEach(summary => {
   }
 
   function calculate() {
-    const start   = parseFloat(amountInput.value) || 100;
-    const rate    = parseFloat(typeSelect.value) || 0.05;
-    const weeks   = parseInt(weeksSlider.value, 10) || 12;
+    const start = parseFloat(amountInput.value) || 100;
+    const rate  = parseFloat(typeSelect.value) || 0.05;
+    const weeks = parseInt(weeksSlider.value, 10) || 12;
 
     weeksLabel.textContent = weeks;
 
-    // Build week-by-week data
     const rows = [];
     let balance = start;
     for (let w = 1; w <= weeks; w++) {
-      const gain  = balance * rate;
-      balance     = balance + gain;
+      const gain = balance * rate;
+      balance    = balance + gain;
       rows.push({ week: w, balance, gain });
     }
 
@@ -287,10 +285,8 @@ document.querySelectorAll('.faq-item summary').forEach(summary => {
     totalProfit.textContent = '+' + fmt(profit);
     totalGrowth.textContent = '+' + growth.toFixed(1) + '%';
 
-    // Build mini table — show every 4 weeks + first + last
     tableBody.innerHTML = '';
 
-    // Start row
     const startRow = document.createElement('tr');
     startRow.innerHTML = `<td>Start</td><td>${fmt(start)}</td><td>—</td>`;
     tableBody.appendChild(startRow);
@@ -312,7 +308,7 @@ document.querySelectorAll('.faq-item summary').forEach(summary => {
   amountInput.addEventListener('input', calculate);
   typeSelect.addEventListener('change', calculate);
 
-  calculate(); // initial render
+  calculate();
 })();
 
 /* ─── STICKY CTA BAR ─── */
@@ -354,11 +350,8 @@ document.querySelectorAll('.faq-item summary').forEach(summary => {
     accept.addEventListener('click', () => {
       localStorage.setItem('cookieConsent', 'accepted');
       hideBanner();
-      // Fire GA4 consent update if gtag is available
       if (typeof gtag === 'function') {
-        gtag('consent', 'update', {
-          analytics_storage: 'granted',
-        });
+        gtag('consent', 'update', { analytics_storage: 'granted' });
       }
     });
   }
