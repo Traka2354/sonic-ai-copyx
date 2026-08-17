@@ -1511,6 +1511,10 @@ body.lang-hr [lang-hr] { display: revert !important; }
 .press-logo--gulf:hover { color: #5BB8E0; }
 .press-logo--entrepreneur { color: rgba(224,91,91,.55); }
 .press-logo--entrepreneur:hover { color: #E05B5B; }
+.press-logo--rolling-stone { color: rgba(210,35,35,.6); }
+.press-logo--rolling-stone:hover { color: #D22323; }
+.press-logo--billboard { color: rgba(220,130,30,.6); }
+.press-logo--billboard:hover { color: #DC821E; }
 @media (max-width: 500px) {
   .press-strip__divider { display: none; }
   .press-strip__inner { gap: .75rem; }
@@ -1551,6 +1555,8 @@ body.lang-hr [lang-hr] { display: revert !important; }
 }
 .press-card__pub--gulf { color: #5BB8E0; }
 .press-card__pub--entrepreneur { color: #E07B7B; }
+.press-card__pub--rolling-stone { color: #D22323; }
+.press-card__pub--billboard { color: #DC821E; }
 .press-card__quote {
   font-size: .9rem;
   color: rgba(255,255,255,.75);
