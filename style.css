@@ -1511,10 +1511,6 @@ body.lang-hr [lang-hr] { display: revert !important; }
 .press-logo--gulf:hover { color: #5BB8E0; }
 .press-logo--entrepreneur { color: rgba(224,91,91,.55); }
 .press-logo--entrepreneur:hover { color: #E05B5B; }
-.press-logo--rolling-stone { color: rgba(210,35,35,.6); }
-.press-logo--rolling-stone:hover { color: #D22323; }
-.press-logo--billboard { color: rgba(220,130,30,.6); }
-.press-logo--billboard:hover { color: #DC821E; }
 @media (max-width: 500px) {
   .press-strip__divider { display: none; }
   .press-strip__inner { gap: .75rem; }
@@ -1555,8 +1551,6 @@ body.lang-hr [lang-hr] { display: revert !important; }
 }
 .press-card__pub--gulf { color: #5BB8E0; }
 .press-card__pub--entrepreneur { color: #E07B7B; }
-.press-card__pub--rolling-stone { color: #D22323; }
-.press-card__pub--billboard { color: #DC821E; }
 .press-card__quote {
   font-size: .9rem;
   color: rgba(255,255,255,.75);
@@ -1571,3 +1565,281 @@ body.lang-hr [lang-hr] { display: revert !important; }
   color: var(--gold);
   margin-top: auto;
 }
+
+/* ─── NEW PRESS PUBLICATIONS ─── */
+.press-logo--rolling-stone { color: rgba(210,35,35,.6); }
+.press-logo--rolling-stone:hover { color: #D22323; }
+.press-logo--billboard { color: rgba(220,130,30,.6); }
+.press-logo--billboard:hover { color: #DC821E; }
+.press-card__pub--rolling-stone { color: #D22323; }
+.press-card__pub--billboard { color: #DC821E; }
+
+/* ═══════════════════════════════════════════
+   REDESIGN 2026 — AURORA + GLASSMORPHISM
+   ═══════════════════════════════════════════ */
+
+/* ─── BODY BG — richer ambient gradients ─── */
+body {
+  background-image:
+    radial-gradient(ellipse 140% 70% at 50% -5%, rgba(180,120,20,.09) 0%, transparent 55%),
+    radial-gradient(ellipse 80% 50% at 0% 100%, rgba(139,92,246,.04) 0%, transparent 50%),
+    radial-gradient(ellipse 80% 50% at 100% 80%, rgba(200,151,61,.03) 0%, transparent 50%);
+}
+
+/* ─── HERO TYPOGRAPHY — CINEMATIC ─── */
+h1 {
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  letter-spacing: -.04em;
+}
+.hero__subtitle {
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+}
+
+/* ─── AURORA ORB SYSTEM ─── */
+.hero__aurora {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform;
+}
+.hero__aurora--gold {
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle at center, rgba(200,151,61,.16) 0%, rgba(200,151,61,.04) 40%, transparent 70%);
+  filter: blur(60px);
+  top: -250px;
+  right: -200px;
+  animation: auroraFloat 12s ease-in-out infinite;
+}
+.hero__aurora--purple {
+  width: 650px;
+  height: 650px;
+  background: radial-gradient(circle at center, rgba(139,92,246,.11) 0%, rgba(139,92,246,.03) 45%, transparent 70%);
+  filter: blur(70px);
+  bottom: -150px;
+  left: -120px;
+  animation: auroraFloat 9s ease-in-out infinite reverse;
+}
+.hero__aurora--blue {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle at center, rgba(59,130,246,.08) 0%, transparent 65%);
+  filter: blur(80px);
+  top: 30%;
+  left: 35%;
+  animation: auroraFloat 15s ease-in-out infinite 3s;
+}
+@keyframes auroraFloat {
+  0%,100% { transform: translate(0,0) scale(1); }
+  33%      { transform: translate(25px,-18px) scale(1.04); }
+  66%      { transform: translate(-18px,12px) scale(.97); }
+}
+
+/* ─── GLASSMORPHISM — ALL CARDS ─── */
+.press-card,
+.feature-card,
+.trust-card,
+.platform-card,
+.gold-card,
+.testimonial-card,
+.community-card,
+.account-card,
+.perf-card,
+.step,
+.faq-item,
+.qr-card,
+.calc-wrap,
+.hero__live-results,
+.hero__stats,
+.live-card {
+  backdrop-filter: blur(10px) saturate(140%);
+  -webkit-backdrop-filter: blur(10px) saturate(140%);
+}
+
+/* ─── CARD HOVER GLOW ─── */
+.press-card:hover,
+.feature-card:hover,
+.trust-card:hover,
+.platform-card:hover,
+.gold-card:hover {
+  box-shadow: 0 0 30px rgba(200,151,61,.1), 0 8px 32px rgba(0,0,0,.35);
+  transform: translateY(-4px);
+}
+.testimonial-card {
+  border-color: rgba(255,255,255,.06);
+}
+.testimonial-card:hover {
+  border-color: rgba(200,151,61,.3);
+  box-shadow: 0 0 20px rgba(200,151,61,.08);
+  transform: translateY(-3px);
+}
+
+/* ─── FEATURED ACCOUNT CARD — PULSING GLOW ─── */
+@keyframes cardPulse {
+  0%,100% { box-shadow: 0 0 20px rgba(200,151,61,.12), 0 4px 20px rgba(0,0,0,.3); }
+  50%      { box-shadow: 0 0 50px rgba(200,151,61,.28), 0 8px 30px rgba(0,0,0,.4); }
+}
+.account-card--featured {
+  animation: cardPulse 4s ease-in-out infinite;
+}
+.account-card--featured:hover {
+  animation-play-state: paused;
+  box-shadow: 0 0 60px rgba(200,151,61,.35), 0 10px 40px rgba(0,0,0,.5) !important;
+}
+
+/* ─── GOLD BUTTON — GLOW ENHANCED ─── */
+.btn--gold {
+  box-shadow: 0 0 20px rgba(200,151,61,.2), 0 4px 20px rgba(200,151,61,.35) !important;
+  position: relative;
+  overflow: hidden;
+}
+.btn--gold::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(232,181,80,.5), rgba(200,151,61,.3));
+  opacity: 0;
+  transition: opacity .25s;
+  z-index: -1;
+  filter: blur(8px);
+}
+.btn--gold:hover {
+  box-shadow: 0 0 35px rgba(200,151,61,.5), 0 8px 30px rgba(200,151,61,.55) !important;
+}
+.btn--gold:hover::after { opacity: 1; }
+
+/* ─── HERO BADGE — GLOW ANIMATION ─── */
+.hero__badge {
+  background: rgba(200,151,61,.07);
+  box-shadow: 0 0 20px rgba(200,151,61,.1);
+  animation: badgePulse 3s ease-in-out infinite;
+}
+@keyframes badgePulse {
+  0%,100% { box-shadow: 0 0 10px rgba(200,151,61,.1); }
+  50%      { box-shadow: 0 0 24px rgba(200,151,61,.24); }
+}
+
+/* ─── SECTION TAG — FROSTED ─── */
+.section__tag {
+  background: rgba(200,151,61,.07);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 0 12px rgba(200,151,61,.08);
+}
+
+/* ─── GOLD TEXT — SUBTLE GLOW ─── */
+.gold-text {
+  text-shadow: 0 0 30px rgba(232,181,80,.2);
+}
+
+/* ─── SOCIAL PROOF BAR — AMBIENT ─── */
+.social-proof-bar {
+  background: linear-gradient(90deg, var(--dark2), rgba(200,151,61,.04), var(--dark2));
+}
+.social-proof-num {
+  text-shadow: 0 0 20px rgba(200,151,61,.3);
+}
+
+/* ─── STEP CARDS ─── */
+.step:hover {
+  border-color: rgba(200,151,61,.4);
+  box-shadow: 0 0 25px rgba(200,151,61,.08);
+}
+.step__num {
+  box-shadow: 0 0 20px rgba(200,151,61,.3);
+}
+
+/* ─── ICON GLOWS ─── */
+.trust-card__icon {
+  box-shadow: 0 0 16px rgba(200,151,61,.15);
+}
+.trust-card:hover .trust-card__icon {
+  box-shadow: 0 0 28px rgba(200,151,61,.3);
+  background: rgba(200,151,61,.14);
+}
+.feature-card__icon {
+  box-shadow: 0 0 12px rgba(200,151,61,.1);
+}
+.feature-card:hover .feature-card__icon {
+  box-shadow: 0 0 22px rgba(200,151,61,.22);
+  background: rgba(200,151,61,.14);
+}
+.community-card__icon {
+  box-shadow: 0 0 16px rgba(200,151,61,.12);
+}
+
+/* ─── HERO LIVE RESULTS & STATS — GLASS ─── */
+.hero__live-results {
+  border-color: rgba(255,255,255,.1);
+  box-shadow: 0 8px 32px rgba(0,0,0,.3), 0 0 20px rgba(200,151,61,.07);
+}
+.live-card--accent {
+  box-shadow: 0 0 20px rgba(200,151,61,.1);
+}
+.hero__stats {
+  border-color: rgba(255,255,255,.08);
+  box-shadow: 0 8px 24px rgba(0,0,0,.25);
+}
+
+/* ─── PRESS STRIP — FROSTED ─── */
+.press-strip {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background: rgba(6,8,16,.88);
+}
+
+/* ─── NAV SCROLLED — ENHANCED ─── */
+.nav.scrolled {
+  background: rgba(6,8,16,.75) !important;
+  backdrop-filter: blur(20px) saturate(150%) !important;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+/* ─── PERFORMANCE CARD MONTHLY ─── */
+.perf-card--monthly {
+  box-shadow: 0 0 30px rgba(200,151,61,.08);
+}
+
+/* ─── FAQ ITEM OPEN ─── */
+.faq-item[open] {
+  box-shadow: 0 0 20px rgba(200,151,61,.07);
+}
+
+/* ─── STICKY CTA BAR — GLASS ─── */
+.sticky-cta {
+  background: rgba(6,8,16,.75) !important;
+  backdrop-filter: blur(20px) saturate(150%) !important;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+/* ─── SECTION DARK AMBIENT ORB ─── */
+.section--dark {
+  position: relative;
+  overflow: hidden;
+}
+.section--dark::before {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200,151,61,.04) 0%, transparent 65%);
+  top: -200px;
+  right: -150px;
+  pointer-events: none;
+  z-index: 0;
+}
+.section--dark > .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── COMPOUND TABLE HIGHLIGHT ROW ─── */
+.compound-table tr.highlight td {
+  background: rgba(200,151,61,.06);
+}
+
+/* ─── SECTION HEADER – HERO Z-INDEX FIX ─── */
+.hero__inner { z-index: 2; }
