@@ -193,6 +193,20 @@ body{background-image:radial-gradient(ellipse 140% 70% at 50% -5%,rgba(0,180,216
 .btn--promo{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2.2rem;border-radius:50px;font-size:1rem;font-weight:800;text-decoration:none;color:#000;background:linear-gradient(135deg,#FFB800,#FF8C00);box-shadow:0 0 30px rgba(255,140,0,.4),0 4px 20px rgba(255,140,0,.35);transition:all .25s;letter-spacing:.02em}
 .btn--promo:hover{box-shadow:0 0 55px rgba(255,140,0,.65),0 8px 30px rgba(255,140,0,.55);transform:translateY(-2px)}
 .promo-min{font-size:.75rem;color:rgba(255,255,255,.4);margin-top:.6rem}
+/* === CEO ROADMAP === */
+.ceo-roadmap{margin:2.8rem 0 2rem;border:1px solid rgba(0,180,216,.25);border-radius:18px;padding:2rem 1.8rem 1.8rem;background:linear-gradient(160deg,rgba(0,180,216,.05),rgba(0,0,0,.2))}
+.ceo-roadmap__badge{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#38D0F0;background:rgba(0,180,216,.1);border:1px solid rgba(0,180,216,.25);border-radius:50px;padding:.28rem .9rem;margin-bottom:.8rem}
+.ceo-roadmap__title{font-size:1.35rem;font-weight:800;color:#fff;margin:0 0 .6rem;line-height:1.25}
+.ceo-roadmap__intro{font-size:.93rem;color:rgba(255,255,255,.6);margin:0 0 1.6rem;line-height:1.6}
+.ceo-roadmap__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+@media(max-width:768px){.ceo-roadmap__grid{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.ceo-roadmap__grid{grid-template-columns:1fr}}
+.ceo-roadmap__item{background:rgba(0,180,216,.04);border:1px solid rgba(0,180,216,.12);border-radius:12px;padding:1rem}
+.ceo-roadmap__item--quote{border-color:rgba(0,180,216,.3);background:rgba(0,180,216,.07)}
+.ceo-roadmap__icon{font-size:1.4rem;margin-bottom:.45rem}
+.ceo-roadmap__item h4{font-size:.88rem;font-weight:700;color:#38D0F0;margin:0 0 .35rem}
+.ceo-roadmap__item p{font-size:.8rem;color:rgba(255,255,255,.58);margin:0;line-height:1.55}
+.ceo-roadmap__item--quote p{font-style:italic;color:rgba(255,255,255,.65)}
 </style>
 </head>
 <body>
@@ -333,7 +347,7 @@ Start with as little as <strong>$10</strong> — no experience needed
 <!-- ─── NEWS FLASH ─── -->
 <section class="news-flash" id="news">
 <div class="container">
-<p>📊 <strong>Week Sep 22–26:</strong> 7 trades, 7 wins, 0 losses — <strong>100% win rate!</strong> +2.855% (12X) / <strong>+5.71% gross</strong> (24X) — net +4.00%. 📅 <strong>September MTD:</strong> 25 trades, 22 wins, 3 losses, 88% win rate — +10.23% (12X) / <strong>+20.46% (24X)</strong>. 💳 <strong>VISA Card LIVE</strong> from Poland event! 🌍 <strong>540,000+ members worldwide.</strong> 🏆 <strong>August 2026:</strong> +19.62% (24X) — 18 consecutive winning months! 👔 New CEO: <strong>Craig Lund</strong> (ex-Merrill Lynch). 🇿🇦 <strong>Tag Markets FSCA-regulated</strong> in South Africa.</p>
+<p>📊 <strong>Week Sep 22–26:</strong> 7 trades, 7 wins, 0 losses — <strong>100% win rate!</strong> +2.855% (12X) / <strong>+5.71% gross</strong> (24X). 📅 <strong>September MTD:</strong> 25 trades, 88% win rate — +10.23% (12X) / <strong>+20.46% (24X)</strong>. 🏗️ <strong>Oct 2026 — CEO Global Call:</strong> Craig Lund announced a full compliance roadmap — Head of Compliance (former regulator), Head of Internal Audit, Head of Reconciliations &amp; VP of Product Control all hired. 3–6–12 month roadmap for <strong>global licensing expansion</strong>. 💳 <strong>VISA Card LIVE!</strong> 🌍 <strong>540,000+ members.</strong> 🏆 <strong>August:</strong> +19.62% (24X) — 18 winning months in a row! 🎟️ <strong>October Promo:</strong> $3M raffle — 200 winners × $10,000.</p>
 </div>
 </section>
 
@@ -1037,7 +1051,7 @@ Contact Us on WhatsApp
 <div class="section__header">
 <span class="section__tag">Powered by Tag Markets</span>
 <h2>Your Funds. <span class="gold-text">Your Control.</span></h2>
-<p>Tag Markets is the regulated broker behind Sonic AI CopyX. Trusted by over <strong>1,000,000 clients worldwide</strong>, with <strong>$820B+</strong> in transaction volume. Holding licences including Mauritius and South Africa (FSCA), it provides the infrastructure that makes Sonic AI CopyX safe, transparent, and globally compliant. In September 2026, Tag Markets appointed <strong>Craig Lund as CEO</strong> (ex-Merrill Lynch, BitOasis, MidChains). At a live event in Poland (Sep 2026), Sonic AI announced <strong>over 540,000 active members worldwide</strong> and the official launch of the <strong>Sonic AI Visa Card</strong> — enabling direct spending of trading profits globally.</p>
+<p>Tag Markets is the regulated broker behind Sonic AI CopyX. Trusted by over <strong>1,000,000 clients worldwide</strong>, with <strong>$820B+</strong> in transaction volume, it holds licences including South Africa (FSCA) and is actively pursuing further international licensing. In September 2026, Tag Markets appointed <strong>Craig Lund as CEO</strong> (ex-Merrill Lynch, BitOasis, MidChains). At a live event in Poland (Sep 2026), Sonic AI announced <strong>over 540,000 active members</strong> and the launch of the <strong>Sonic AI Visa Card</strong>. In October 2026, CEO Craig Lund presented a major infrastructure roadmap on a global call — see details below.</p>
 </div>
 <div class="platform-grid">
 <div class="platform-card reveal">
@@ -1067,6 +1081,45 @@ Contact Us on WhatsApp
 </div>
 <h4>Instant Withdrawals</h4>
 <p>Request a withdrawal any time. Funds are processed quickly with no lock-up periods or exit penalties.</p>
+</div>
+</div>
+<div class="ceo-roadmap reveal">
+<div class="ceo-roadmap__header">
+<span class="ceo-roadmap__badge">📣 October 2026 — CEO Global Call</span>
+<h3 class="ceo-roadmap__title">Craig Lund: Building the Infrastructure for Global Growth</h3>
+<p class="ceo-roadmap__intro">In a global call for all partners and members, CEO Craig Lund outlined Tag Markets' compliance and governance roadmap — the foundation for the company's next phase of international expansion.</p>
+</div>
+<div class="ceo-roadmap__grid">
+<div class="ceo-roadmap__item">
+<div class="ceo-roadmap__icon">🌍</div>
+<h4>Global Licensing Expansion</h4>
+<p>Tag Markets is actively pursuing additional international licences with a clear 3, 6 and 12-month roadmap for regulated market entry.</p>
+</div>
+<div class="ceo-roadmap__item">
+<div class="ceo-roadmap__icon">🛡️</div>
+<h4>Head of Compliance & Regulatory Affairs</h4>
+<p>A former regulator with extensive European broker-licensing experience has been appointed to strengthen regulatory compliance and corporate governance.</p>
+</div>
+<div class="ceo-roadmap__item">
+<div class="ceo-roadmap__icon">🔍</div>
+<h4>Head of Internal Audit</h4>
+<p>A dedicated internal audit function is now in place, with the long-term goal of independent external audits to verify the soundness of company controls.</p>
+</div>
+<div class="ceo-roadmap__item">
+<div class="ceo-roadmap__icon">💰</div>
+<h4>Head of Reconciliations</h4>
+<p>Client ledger balances are now continuously reconciled against actual funds held in segregated bank accounts, liquidity providers and payment providers.</p>
+</div>
+<div class="ceo-roadmap__item">
+<div class="ceo-roadmap__icon">🧩</div>
+<h4>VP of Product & Product Control</h4>
+<p>New product controls ensure that every release follows proper procedures — improving the full customer journey from onboarding through ongoing use.</p>
+</div>
+<div class="ceo-roadmap__item ceo-roadmap__item--quote">
+<div class="ceo-roadmap__icon">💬</div>
+<h4>Craig Lund's Message</h4>
+<p>"Based on 15 years of experience with brokerages, I have been impressed by how quickly TAG's leadership has aligned around this roadmap and begun implementing it. This infrastructure is not intended to slow growth — it is what enables us to scale safely."</p>
+</div>
 </div>
 </div>
 <div class="platform-register">
