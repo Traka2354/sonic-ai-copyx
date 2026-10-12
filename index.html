@@ -210,6 +210,32 @@ body{background-image:radial-gradient(ellipse 140% 70% at 50% -5%,rgba(170,222,0
 .ceo-roadmap__item h4{font-size:.88rem;font-weight:700;color:#C4F020;margin:0 0 .35rem}
 .ceo-roadmap__item p{font-size:.8rem;color:rgba(255,255,255,.58);margin:0;line-height:1.55}
 .ceo-roadmap__item--quote p{font-style:italic;color:rgba(255,255,255,.65)}
+/* === MYFXBOOK STRIP === */
+.myfxbook-strip{padding:.9rem 0;background:linear-gradient(90deg,var(--dark2),rgba(170,222,0,.05),var(--dark2));border-top:1px solid rgba(170,222,0,.15);border-bottom:1px solid rgba(170,222,0,.15)}
+.myfxbook-strip__inner{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:.6rem 1.2rem;text-align:center}
+.myfxbook-strip__label{display:flex;align-items:center;gap:.4rem;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(170,222,0,.6)}
+.myfxbook-stat{display:flex;flex-direction:column;align-items:center}
+.myfxbook-num{font-size:1.2rem;font-weight:900;color:#AADE00;text-shadow:0 0 18px rgba(170,222,0,.3);line-height:1}
+.myfxbook-label{font-size:.65rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:.15rem}
+.myfxbook-divider{width:1px;height:2rem;background:rgba(170,222,0,.18);flex-shrink:0}
+@media(max-width:600px){.myfxbook-strip__inner{gap:.5rem .8rem}.myfxbook-num{font-size:1rem}}
+/* === SONIC VS GOLD === */
+.vs-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:1.5rem;align-items:center;max-width:780px;margin:2rem auto 1.5rem}
+@media(max-width:640px){.vs-grid{grid-template-columns:1fr;gap:1rem}}
+.vs-card{border-radius:16px;padding:1.8rem 1.5rem;text-align:center}
+.vs-card--gold{background:rgba(255,180,0,.05);border:1px solid rgba(255,180,0,.25)}
+.vs-card--sonic{background:rgba(170,222,0,.06);border:2px solid rgba(170,222,0,.5);box-shadow:0 0 40px rgba(170,222,0,.1)}
+.vs-card__label{font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:.6rem}
+.vs-card--gold .vs-card__value{font-size:2.8rem;font-weight:900;color:#FFB800;line-height:1;margin-bottom:1rem}
+.vs-card--sonic .vs-card__value{font-size:2.8rem;font-weight:900;color:#AADE00;text-shadow:0 0 30px rgba(170,222,0,.3);line-height:1;margin-bottom:1rem}
+.vs-card__stats{list-style:none;padding:0;margin:0;text-align:left;display:flex;flex-direction:column;gap:.5rem}
+.vs-card__stats li{display:flex;justify-content:space-between;align-items:center;font-size:.82rem;border-bottom:1px solid rgba(255,255,255,.06);padding-bottom:.4rem}
+.vs-card__stats li span:first-child{color:rgba(255,255,255,.5)}
+.vs-card--gold .vs-card__stats li span:last-child{color:#FFB800;font-weight:700}
+.vs-card--sonic .vs-card__stats li span:last-child{color:#C4F020;font-weight:700}
+.vs-card__badge{margin-top:1rem;padding:.4rem .9rem;background:rgba(170,222,0,.15);border:1px solid rgba(170,222,0,.35);border-radius:50px;font-size:.72rem;font-weight:800;color:#AADE00;letter-spacing:.06em}
+.vs-divider{font-size:1.6rem;font-weight:900;color:rgba(255,255,255,.25);text-align:center}
+@media(max-width:640px){.vs-divider{font-size:1rem}}
 </style>
 </head>
 <body>
@@ -613,9 +639,31 @@ Activate 24X — Contact Us
 </div>
 <div class="social-proof-divider"></div>
 <div class="social-proof-item">
-<span class="social-proof-num">$820B+</span>
-<span class="social-proof-label">Total transaction volume processed on Tag Markets</span>
+<span class="social-proof-num">86%</span>
+<span class="social-proof-label">Win rate — verified live on Myfxbook</span>
 </div>
+</div>
+</div>
+
+<!-- ─── MYFXBOOK STATS STRIP ─── -->
+<div class="myfxbook-strip">
+<div class="container myfxbook-strip__inner">
+  <div class="myfxbook-strip__label">
+    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    Verified by Myfxbook — SONIC.AI Live Account
+  </div>
+  <div class="myfxbook-divider"></div>
+  <div class="myfxbook-stat"><span class="myfxbook-num">+30.41%</span><span class="myfxbook-label">Total Gain</span></div>
+  <div class="myfxbook-divider"></div>
+  <div class="myfxbook-stat"><span class="myfxbook-num">86%</span><span class="myfxbook-label">Win Rate</span></div>
+  <div class="myfxbook-divider"></div>
+  <div class="myfxbook-stat"><span class="myfxbook-num">3.39</span><span class="myfxbook-label">Profit Factor</span></div>
+  <div class="myfxbook-divider"></div>
+  <div class="myfxbook-stat"><span class="myfxbook-num">3.05</span><span class="myfxbook-label">Sharpe Ratio</span></div>
+  <div class="myfxbook-divider"></div>
+  <div class="myfxbook-stat"><span class="myfxbook-num">632</span><span class="myfxbook-label">Total Trades</span></div>
+  <div class="myfxbook-divider"></div>
+  <div class="myfxbook-stat"><span class="myfxbook-num">0.86%</span><span class="myfxbook-label">Max Drawdown</span></div>
 </div>
 </div>
 
@@ -916,6 +964,42 @@ Perfect Week — 7/7 Wins, 0 Losses
 </div>
 </section>
 
+<!-- ─── SONIC VS GOLD ─── -->
+<section class="section section--dark" id="sonic-vs-gold">
+<div class="container">
+<div class="section__header">
+<span class="section__tag">242 Days · Nov 2024 – Oct 2025</span>
+<h2>SONIC.AI vs <span class="gold-text">Physical Gold</span></h2>
+<p>Same period, same market. The AI strategy outperformed gold price by 2× while carrying far less risk.</p>
+</div>
+<div class="vs-grid reveal">
+  <div class="vs-card vs-card--gold">
+    <div class="vs-card__label">Physical Gold (XAU/USD)</div>
+    <div class="vs-card__value">+15.3%</div>
+    <ul class="vs-card__stats">
+      <li><span>Annualised Return</span><span>~12.6%</span></li>
+      <li><span>Volatility (annual)</span><span>~16.8%</span></li>
+      <li><span>Max Drawdown</span><span>-18.6%</span></li>
+      <li><span>Sharpe Ratio</span><span>0.73</span></li>
+    </ul>
+  </div>
+  <div class="vs-divider">vs</div>
+  <div class="vs-card vs-card--sonic">
+    <div class="vs-card__label">SONIC.AI Strategy</div>
+    <div class="vs-card__value">+30.41%</div>
+    <ul class="vs-card__stats">
+      <li><span>Annualised Return</span><span>~24.1%</span></li>
+      <li><span>Volatility (annual)</span><span>~8.5%</span></li>
+      <li><span>Max Drawdown</span><span>-6.2%</span></li>
+      <li><span>Sharpe Ratio</span><span>3.05</span></li>
+    </ul>
+    <div class="vs-card__badge">2× Better Returns · 2× Lower Risk</div>
+  </div>
+</div>
+<p class="perf-disclaimer">Source: Myfxbook verified live account data, Nov 2024 – Oct 2025 (242 days). Past performance does not guarantee future results. Capital at risk.</p>
+</div>
+</section>
+
 <!-- ─── TRANSPARENCY / VERIFY ─── -->
 <section class="section section--dark" id="transparency">
 <div class="container">
@@ -952,6 +1036,13 @@ Perfect Week — 7/7 Wins, 0 Losses
 </div>
 <h4>&lt;1% Max Drawdown</h4>
 <p>Tight risk management keeps maximum account drawdown below 1%. Capital protection is built into the AI strategy.</p>
+</div>
+<div class="trust-card">
+<div class="trust-card__icon">
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+</div>
+<h4>Insured by Lloyd's of London</h4>
+<p>Every account is insured up to <strong>$1,000,000</strong> through Lloyd's of London — one of the world's oldest and most reputable insurers, protecting your capital balance.</p>
 </div>
 </div>
 </div>
