@@ -210,6 +210,22 @@ body{background-image:radial-gradient(ellipse 140% 70% at 50% -5%,rgba(170,222,0
 .ceo-roadmap__item h4{font-size:.88rem;font-weight:700;color:#C4F020;margin:0 0 .35rem}
 .ceo-roadmap__item p{font-size:.8rem;color:rgba(255,255,255,.58);margin:0;line-height:1.55}
 .ceo-roadmap__item--quote p{font-style:italic;color:rgba(255,255,255,.65)}
+/* === NO UPFRONT COSTS === */
+.no-costs-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:2rem;align-items:center;max-width:820px;margin:0 auto}
+@media(max-width:640px){.no-costs-grid{grid-template-columns:1fr}}
+.no-costs-nope{display:flex;flex-direction:column;gap:.8rem}
+.no-costs-item{display:flex;align-items:center;gap:.75rem;font-size:1.05rem;font-weight:600;color:#fff}
+.no-costs-item svg{color:#AADE00;flex-shrink:0}
+.no-costs-detail{background:rgba(170,222,0,.05);border:1px solid rgba(170,222,0,.2);border-radius:16px;padding:1.6rem}
+.no-costs-detail p{font-size:.95rem;color:rgba(255,255,255,.75);line-height:1.7;margin:0}
+.no-costs-detail strong{color:#C4F020}
+/* === WHO WE ARE === */
+.who-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;max-width:880px;margin:2rem auto 0}
+@media(max-width:640px){.who-grid{grid-template-columns:1fr}}
+.who-card{background:rgba(170,222,0,.04);border:1px solid rgba(170,222,0,.15);border-radius:14px;padding:1.4rem 1.5rem}
+.who-card__label{font-size:.65rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#AADE00;margin-bottom:.65rem}
+.who-card p{font-size:.88rem;color:rgba(255,255,255,.7);line-height:1.65;margin:0}
+.who-card strong{color:#fff}
 /* === MYFXBOOK STRIP === */
 .myfxbook-strip{padding:.9rem 0;background:linear-gradient(90deg,var(--dark2),rgba(170,222,0,.05),var(--dark2));border-top:1px solid rgba(170,222,0,.15);border-bottom:1px solid rgba(170,222,0,.15)}
 .myfxbook-strip__inner{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:.6rem 1.2rem;text-align:center}
@@ -486,7 +502,7 @@ Start with as little as <strong>$10</strong> — no experience needed
 <div class="section__header">
 <span class="section__tag">Simple &amp; Transparent</span>
 <h2>How It <span class="gold-text">Works</span></h2>
-<p>Three steps to start earning with AI-powered gold copy trading. No experience required.</p>
+<p>Four steps to start earning with AI-powered gold copy trading. No experience required.</p>
 </div>
 <div class="steps">
 <div class="step reveal">
@@ -508,6 +524,13 @@ Start with as little as <strong>$10</strong> — no experience needed
 <div class="step__content">
 <h3>Activate &amp; Copy</h3>
 <p>Tag Markets Sonic AI CopyX mirrors expert gold trades to your account in real time. Monitor your performance live — withdraw profits whenever you choose.</p>
+</div>
+</div>
+<div class="step reveal">
+<div class="step__num">4</div>
+<div class="step__content">
+<h3>Track &amp; Enjoy</h3>
+<p>Track your results in real time in the MetaTrader 5 app and enjoy your capital. Withdraw profits daily or reinvest — your choice, your account.</p>
 </div>
 </div>
 </div>
@@ -612,6 +635,36 @@ Activate 24X — Contact Us
 </div>
 </div>
 <p class="accounts-disclaimer">*Example results from recent weeks. Past performance is not indicative of future results. Higher leverage means higher risk. Capital is at risk. Please read the full risk disclosure before investing.</p>
+</div>
+</section>
+
+<!-- ─── NO UPFRONT COSTS ─── -->
+<section class="section" id="no-costs">
+<div class="container">
+<div class="section__header">
+<span class="section__tag">Simple Fee Structure</span>
+<h2>No Upfront <span class="gold-text">Costs</span></h2>
+<p>You never pay to join. The only cost is a share of your profits — and only when there are profits.</p>
+</div>
+<div class="no-costs-grid reveal">
+  <div class="no-costs-nope">
+    <div class="no-costs-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      No robot or bot to buy
+    </div>
+    <div class="no-costs-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      No membership fee
+    </div>
+    <div class="no-costs-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      No paid mentorship
+    </div>
+  </div>
+  <div class="no-costs-detail">
+    <p>The only fee is a fixed <strong>30%</strong> of each profitable trade: <strong>70% of the profit is yours</strong>, 30% goes to the trader. No profit, no fee — so the trader earns only when you do. Your broker's standard trading commission applies separately.</p>
+  </div>
+</div>
 </div>
 </section>
 
@@ -1044,6 +1097,35 @@ Perfect Week — 7/7 Wins, 0 Losses
 <h4>Insured by Lloyd's of London</h4>
 <p>Every account is insured up to <strong>$1,000,000</strong> through Lloyd's of London — one of the world's oldest and most reputable insurers, protecting your capital balance.</p>
 </div>
+</div>
+</div>
+</section>
+
+<!-- ─── WHO WE ARE / YOUR MONEY ─── -->
+<section class="section section--dark" id="who-we-are">
+<div class="container">
+<div class="section__header">
+<span class="section__tag">Full Transparency</span>
+<h2>Who We Are &amp; <span class="gold-text">Where Your Money Is</span></h2>
+<p>No mystery, no black box. Here is exactly who runs the strategy, who holds the broker licence, and how your funds are protected.</p>
+</div>
+<div class="who-grid reveal">
+  <div class="who-card">
+    <div class="who-card__label">WHO WE ARE</div>
+    <p>SONIC AI is a group of professional traders based in Germany, running an AI-driven XAU/USD strategy since November 2024.</p>
+  </div>
+  <div class="who-card">
+    <div class="who-card__label">THE BROKER</div>
+    <p>Trading runs on accounts at <strong>Tag Markets (T.M. Financials Ltd)</strong>, regulated by the Financial Services Commission of Mauritius as an Investment Dealer, licence <strong>GB21026474</strong>. Check whether services are available in your country.</p>
+  </div>
+  <div class="who-card">
+    <div class="who-card__label">YOUR MONEY</div>
+    <p>Your funds stay in <strong>your own account, in your name</strong>. You decide whether to keep following the strategy. The minimum term is 30 days. Profit is paid out daily: withdraw it right away, or reinvest. Each reinvestment restarts the 30-day term.</p>
+  </div>
+  <div class="who-card">
+    <div class="who-card__label">PUBLIC TRACK RECORD</div>
+    <p>The master account is tracked publicly on <strong>Myfxbook</strong>. It shows the strategy before the broker's ×24 amplification, so its percentages are lower than the results you see here — both sets of numbers are real and verifiable.</p>
+  </div>
 </div>
 </div>
 </section>
