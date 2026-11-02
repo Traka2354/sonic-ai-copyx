@@ -298,6 +298,28 @@ body{background-image:radial-gradient(ellipse 140% 70% at 50% -5%,rgba(170,222,0
 .official-link-card__body span{font-size:.78rem;color:rgba(255,255,255,.5)}
 .official-link-card__arrow{flex-shrink:0;color:rgba(170,222,0,.6)}
 @media(max-width:640px){.official-links-grid{grid-template-columns:1fr}}
+/* November Promo */
+.nov-ways-badge{display:inline-block;font-size:.9rem;font-weight:900;letter-spacing:.12em;color:#FFB800;border:1px solid rgba(255,184,0,.4);border-radius:6px;padding:.3rem 1.2rem;margin-top:.6rem;background:rgba(255,184,0,.08)}
+.nov-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin:1.8rem 0 1.2rem}
+.nov-col{background:rgba(255,184,0,.06);border:1px solid rgba(255,184,0,.25);border-radius:14px;padding:1.2rem 1rem;display:flex;flex-direction:column;gap:.8rem}
+.nov-col__header{text-align:center;padding-bottom:.8rem;border-bottom:1px solid rgba(255,184,0,.2)}
+.nov-col__tag{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:.3rem}
+.nov-col__title{font-size:1.05rem;font-weight:900;color:#fff;line-height:1.2}
+.nov-col__header--new .nov-col__title{color:#FFE066}
+.nov-col__header--qual .nov-col__title{color:#AADE00}
+.nov-col__label{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);text-align:center}
+.nov-rows{display:flex;flex-direction:column;gap:.5rem}
+.nov-row{display:flex;justify-content:space-between;align-items:center;padding:.55rem .8rem;background:rgba(255,255,255,.04);border-radius:8px;border:1px solid rgba(255,255,255,.07)}
+.nov-row--mid{background:rgba(255,184,0,.08);border-color:rgba(255,184,0,.2)}
+.nov-row--top{background:rgba(255,184,0,.16);border-color:rgba(255,184,0,.4)}
+.nov-row__cpa{font-size:.88rem;font-weight:800;color:#FFB800}
+.nov-row__earn{font-size:.8rem;color:rgba(255,255,255,.7)}
+.nov-row__earn strong{color:#fff;font-size:.95rem}
+.nov-footer-note{text-align:center;font-size:.82rem;color:rgba(255,255,255,.55);padding:.8rem 0 .2rem;border-top:1px solid rgba(255,255,255,.08)}
+.nov-footer-note strong{color:#FFB800}
+.nov-levelup{text-align:center;font-size:1.1rem;font-weight:900;letter-spacing:.06em;color:#FFB800;margin:.4rem 0 1.4rem;text-transform:uppercase}
+.nov-levelup span{display:block;font-size:.78rem;font-weight:600;letter-spacing:.04em;color:rgba(255,255,255,.5);text-transform:none;margin-top:.2rem}
+@media(max-width:500px){.nov-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -438,77 +460,71 @@ Start with as little as <strong>$10</strong> — no experience needed
 <!-- ─── NEWS FLASH ─── -->
 <section class="news-flash" id="news">
 <div class="container">
-<p>🏆 <strong>October 2026 Final:</strong> 22 trades, 19 wins, 3 losses, 86.36% win rate — +11.115% (12X) / <strong>+22.23% (24X)</strong>. 🔥 <strong>20 consecutive winning months!</strong> 🏗️ <strong>CEO Craig Lund:</strong> Compliance roadmap + global licensing expansion underway. 💳 <strong>VISA Card LIVE!</strong> 🌍 <strong>540,000+ members.</strong> 🏆 <strong>September 2026:</strong> +20.46% (24X). 🎟️ <strong>October Promo:</strong> $3M raffle — 200 winners × $10,000.</p>
+<p>🏆 <strong>October 2026 Final:</strong> 22 trades, 19 wins, 3 losses, 86.36% win rate — +11.115% (12X) / <strong>+22.23% (24X)</strong>. 🔥 <strong>20 consecutive winning months!</strong> 🏗️ <strong>CEO Craig Lund:</strong> Compliance roadmap + global licensing expansion underway. 💳 <strong>VISA Card LIVE!</strong> 🌍 <strong>540,000+ members.</strong> 🏆 <strong>September 2026:</strong> +20.46% (24X). 🚀 <strong>November Promo:</strong> Super Sonic November — Beat your Best, 2 ways to win up to $5,000!</p>
 </div>
 </section>
 
-<!-- ─── OCTOBER PROMO ─── -->
-<section class="promo-section" id="october-promo">
+<!-- ─── NOVEMBER PROMO ─── -->
+<section class="promo-section" id="november-promo">
 <div class="container">
 <div class="promo-banner">
   <div class="promo-top">
-    <div class="promo-eyebrow">🔥 October 2026 Exclusive Promotion</div>
-    <h2 class="promo-title">Tag Markets Sonic AI<br><span>October Promo</span></h2>
-    <p class="promo-subtitle">Win big — just by growing your team this month</p>
+    <div class="promo-eyebrow">🚀 November 2026 Exclusive Promotion</div>
+    <h2 class="promo-title">Super Sonic<br><span>November</span></h2>
+    <p class="promo-subtitle">Beat your Best &mdash; Beat yourself. Get Paid.</p>
+    <div class="nov-ways-badge">« 2 WAYS TO WIN »</div>
   </div>
-  <div class="promo-prize">
-    <div class="promo-prize__amount">$3,000,000</div>
-    <div class="promo-prize__label">Total Prize Pool — Distributed</div>
-    <div class="promo-prize__detail">200 raffle winners · Each wins <span>$10,000</span></div>
-  </div>
-  <div class="promo-how">
-    <div class="promo-how__title">🎟️ How to earn raffle tickets — sponsor new frontlines (min. $250 each)</div>
-    <div class="promo-tiers">
-      <div class="tier">
-        <div class="tier__icon">🎟️</div>
-        <div class="tier__frontlines">2</div>
-        <div class="tier__fl-label">Frontlines</div>
-        <div class="tier__arrow">↓</div>
-        <div class="tier__tickets">1</div>
-        <div class="tier__t-label">Ticket</div>
+  <div class="nov-grid">
+    <div class="nov-col">
+      <div class="nov-col__header nov-col__header--new">
+        <div class="nov-col__tag">If you are</div>
+        <div class="nov-col__title">New or Never<br>Qualified for CPA</div>
       </div>
-      <div class="tier">
-        <div class="tier__icon">🎟️🎟️</div>
-        <div class="tier__frontlines">4</div>
-        <div class="tier__fl-label">Frontlines</div>
-        <div class="tier__arrow">↓</div>
-        <div class="tier__tickets">2</div>
-        <div class="tier__t-label">Tickets</div>
+      <div class="nov-col__label">QUALIFY FOR —</div>
+      <div class="nov-rows">
+        <div class="nov-row">
+          <span class="nov-row__cpa">2% CPA</span>
+          <span class="nov-row__earn">EARN <strong>$500</strong></span>
+        </div>
+        <div class="nov-row nov-row--mid">
+          <span class="nov-row__cpa">3.5% CPA</span>
+          <span class="nov-row__earn">EARN <strong>$1,500</strong></span>
+        </div>
+        <div class="nov-row nov-row--top">
+          <span class="nov-row__cpa">5% CPA</span>
+          <span class="nov-row__earn">EARN <strong>$5,000</strong></span>
+        </div>
       </div>
-      <div class="tier">
-        <div class="tier__icon">🎟️🎟️🎟️</div>
-        <div class="tier__frontlines">6</div>
-        <div class="tier__fl-label">Frontlines</div>
-        <div class="tier__arrow">↓</div>
-        <div class="tier__tickets">3</div>
-        <div class="tier__t-label">Tickets</div>
+    </div>
+    <div class="nov-col">
+      <div class="nov-col__header nov-col__header--qual">
+        <div class="nov-col__tag">If you have</div>
+        <div class="nov-col__title">Qualified for<br>CPA Ever</div>
       </div>
-      <div class="tier">
-        <div class="tier__icon">🎟️🎟️🎟️🎟️</div>
-        <div class="tier__frontlines">8</div>
-        <div class="tier__fl-label">Frontlines</div>
-        <div class="tier__arrow">↓</div>
-        <div class="tier__tickets">4</div>
-        <div class="tier__t-label">Tickets</div>
-      </div>
-      <div class="tier">
-        <div class="tier__icon">🎟️🎟️🎟️🎟️🎟️</div>
-        <div class="tier__frontlines">10</div>
-        <div class="tier__fl-label">Frontlines</div>
-        <div class="tier__arrow">↓</div>
-        <div class="tier__tickets">5</div>
-        <div class="tier__t-label">Tickets</div>
+      <div class="nov-col__label">ACHIEVE —</div>
+      <div class="nov-rows">
+        <div class="nov-row">
+          <span class="nov-row__cpa">+25%</span>
+          <span class="nov-row__earn">EARN <strong>$500</strong></span>
+        </div>
+        <div class="nov-row nov-row--mid">
+          <span class="nov-row__cpa">+50%</span>
+          <span class="nov-row__earn">EARN <strong>$1,500</strong></span>
+        </div>
+        <div class="nov-row nov-row--top">
+          <span class="nov-row__cpa">+100%</span>
+          <span class="nov-row__earn">EARN <strong>$5,000</strong></span>
+        </div>
       </div>
     </div>
   </div>
-  <div class="promo-note">
-    <span>∞ <strong>No cap</strong> — more tickets = more chances to win. Only new frontlines registered in <strong>October</strong> count.</span>
-  </div>
+  <div class="nov-footer-note">⚠️ This promo starts for <strong>2% CPA and above only.</strong></div>
+  <div class="nov-levelup">LEVEL UP. <span>The more you achieve, the more you earn!</span></div>
   <div class="promo-cta-wrap">
     <a href="https://copyxapp.com/auth/register?e=5GeTnJbGvLwVSNuj6olD56VY0uNh0JSgNome-evW2S4&a=1" target="_blank" rel="noopener noreferrer" class="btn--promo js-register-link">
-      🏆 Join Now &amp; Enter the Raffle
+      🚀 Join Now &amp; Win in November
     </a>
-    <div class="promo-min">Min. $250 per new frontline · October 2026 only</div>
+    <div class="promo-min">November 2026 only · 2% CPA minimum to qualify</div>
   </div>
 </div>
 </div>
